@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Kinetika";
+  src: url("/fonts/Kinetika-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kinetika";
+  src: url("/fonts/Kinetika-Black.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AlbertusNova";
+  src: url("/fonts/AlbertusNova-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-kinetika: "Kinetika", sans-serif;
+  --font-albertus: "AlbertusNova", serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-dark-black: #090806;
+  --color-dark: #1E1E1E;
+  --color-white: #FFFFFF;
+  --color-accent: #8D7E65;
+  --color-gray: #81807D;
+  --color-beige: #FAF7F2;
+  --color-devider: #494949;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-kinetika);
+  background: var(--color-dark);
+  color: var(--color-white);
+  overflow-x: clip;
+}
+
+.font-albertus {
+  font-family: var(--font-albertus);
+}
+
+.burger-menu {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  vertical-align: middle;
+  z-index: 1110;
+}
+
+.burger-menu span,
+.burger-menu span::before,
+.burger-menu span::after {
+  position: absolute;
+  left: calc(50% - 13px);
+  top: calc(50% - 1px);
+  height: 2px;
+  width: 26px;
+  background: var(--color-white);
+  transform-origin: 50% 50%;
+  transition:
+    background-color 0.2s ease-in-out,
+    top 0.2s 0.2s ease-out,
+    transform 0.2s linear;
+  content: "";
+}
+
+.burger-menu span::before {
+  top: 7px;
+}
+
+.burger-menu span::after {
+  top: -7px;
+}
+
+.burger-menu.active span {
+  background-color: transparent;
+  transition: background 0.2s ease-out;
+}
+
+.burger-menu.active span::before,
+.burger-menu.active span::after {
+  transition:
+    top 0.2s ease-out,
+    transform 0.2s 0.2s ease-out;
+}
+
+.burger-menu.active span::before {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.burger-menu.active span::after {
+  top: 0;
+  transform: rotate(45deg);
 }
