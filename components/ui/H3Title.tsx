@@ -1,5 +1,6 @@
 'use client'
 
+import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
 type H3TitleProps = {
@@ -9,7 +10,7 @@ type H3TitleProps = {
   animate?: import('framer-motion').TargetAndTransition
 }
 
-const H3Title = ({ children, delay = 0, className = '', animate: animateProp }: H3TitleProps) => {
+const H3Title = ({ children, delay = 0, className, animate: animateProp }: H3TitleProps) => {
   return (
     <motion.h3
       initial={{ x: 40, opacity: 0 }}
@@ -22,7 +23,10 @@ const H3Title = ({ children, delay = 0, className = '', animate: animateProp }: 
         damping: 15,
         delay,
       }}
-      className={`text-xl leading-[118%] font-bold tracking-normal md:text-2xl md:leading-[116%] md:font-extrabold md:tracking-normal ${className}`}
+      className={clsx(
+        'text-xl leading-[118%] font-bold tracking-normal md:text-2xl md:leading-[116%] md:font-extrabold md:tracking-normal',
+        className,
+      )}
     >
       {children}
     </motion.h3>

@@ -1,5 +1,6 @@
 'use client'
 
+import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
 type H2TitleProps = {
@@ -8,7 +9,7 @@ type H2TitleProps = {
   className?: string
 }
 
-const H2Title = ({ children, className = '', delay = 0 }: H2TitleProps) => {
+const H2Title = ({ children, className, delay = 0 }: H2TitleProps) => {
   return (
     <motion.h2
       initial={{ x: 40, opacity: 0 }}
@@ -20,7 +21,10 @@ const H2Title = ({ children, className = '', delay = 0 }: H2TitleProps) => {
         damping: 15,
         delay,
       }}
-      className={`${className} font-albertus text-[1.75rem] leading-[120%] font-normal tracking-[-1%] uppercase md:text-[2.5rem]`}
+      className={clsx(
+        'font-albertus text-[1.75rem] leading-[120%] font-normal tracking-[-1%] uppercase md:text-[2.5rem]',
+        className,
+      )}
     >
       {children}
     </motion.h2>

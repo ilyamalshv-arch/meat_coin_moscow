@@ -1,3 +1,5 @@
+import clsx from 'clsx'
+
 interface ButtonProps {
   text: string
   variant?: 'primary' | 'secondary'
@@ -10,13 +12,15 @@ const baseStyles =
 const variantStyles: Record<NonNullable<ButtonProps['variant']>, string> = {
   primary: 'text-white bg-(--color-accent)  hover:bg-(--color-dark)',
   secondary:
-    'border-2 text-(--color-accent) hover:text-white border-(--color-accent) hover:bg-(--color-accent)',
+    'border-[1.5px] text-(--color-accent) hover:text-white border-(--color-accent) hover:bg-(--color-accent)',
 }
 
-const Button = ({ text, variant = 'primary', className = '' }: ButtonProps) => {
-  const combinedClassName = `${className} ${baseStyles} ${variantStyles[variant]} `
-
-  return <button className={combinedClassName}>{text}</button>
+const Button = ({ text, variant = 'primary', className }: ButtonProps) => {
+  return (
+    <button className={clsx(baseStyles, variantStyles[variant], className)}>
+      {text}
+    </button>
+  )
 }
 
 export default Button

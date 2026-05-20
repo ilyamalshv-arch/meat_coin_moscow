@@ -111,3 +111,12 @@ body {
   top: 0;
   transform: rotate(45deg);
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
