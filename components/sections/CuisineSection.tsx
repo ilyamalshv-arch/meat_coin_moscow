@@ -1,0 +1,65 @@
+import H2Title from "@/components/ui/H2Title";
+import Paragraph from "@/components/ui/Paragraph";
+import PhotoSliderTabs from "@/components/ui/PhotoSliderTabs";
+import bar1 from "@/public/bar1.png";
+import kitchen1 from "@/public/kitchen1.png";
+import kitchen2 from "@/public/kitchen2.png";
+import kitchen3 from "@/public/kitchen3.png";
+
+const kitchenSlides = [
+  {
+    id: "kitchen-1",
+    src: kitchen1,
+    alt: "Кухня Meat_Coin",
+    imageLabel: "Кухня",
+    title: "Основу гриль-меню составляют блюда с огня",
+    description:
+      "Мастера точно знают, как добиться идеальной прожарки, сохранив внутри сок",
+    description2:
+      "Помимо стейков представлены позиции, созданные под руководством шефа",
+  },
+  {
+    id: "kitchen-2",
+    src: kitchen2,
+    alt: "Кухня Meat_Coin",
+    imageLabel: "Кухня",
+    description: "Отдельный раздел в меню посвящен гастрономическим парам",
+  },
+  {
+    id: "kitchen-3",
+    src: kitchen3,
+    alt: "Кухня Meat_Coin",
+    imageLabel: "Кухня",
+  },
+];
+
+const barSlides = [
+  {
+    id: "bar-1",
+    src: bar1,
+    alt: "Бар Meat_Coin",
+    imageLabel: "Бар",
+    title: "Винной карте более 300 позиций",
+    description:
+      "Сомелье тщательно отбирает этикетки Старого и Нового Света, чтобы каждая бутылка гармонировала с насыщенным вкусом мяса",
+    description2: "Отдельный раздел в меню посвящен гастрономическим парам",
+  },
+];
+
+const whiteSectionTabs = [
+  { label: "Кухня", slides: kitchenSlides },
+  { label: "Бар", slides: barSlides },
+];
+
+export default function CuisineSection() {
+  return (
+    <section className="-mx-4 md:-mx-20 rounded-t-[60px] bg-(--color-beige) px-4 pt-12 pb-14 text-(--color-dark-black) md:px-8 md:pt-16">
+      <Paragraph className="text-gray mb-2">География вкуса</Paragraph>
+      <H2Title className="mb-9 text-(--color-dark-black)">
+        Авторская кухня и турецкие традиции мясников
+      </H2Title>
+
+      <PhotoSliderTabs items={whiteSectionTabs} imgClassName="h-[418px]" />
+    </section>
+  );
+}
