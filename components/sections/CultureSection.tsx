@@ -1,5 +1,6 @@
 import H2Title from "@/components/ui/H2Title";
 import Paragraph from "@/components/ui/Paragraph";
+import H3Title from "../ui/H3Title";
 import UnionOrnament from "./UnionOrnament";
 
 export default function CultureSection() {
@@ -11,9 +12,7 @@ export default function CultureSection() {
           <span className="text-accent">Воплощение мясной культуры</span>{" "}
           <span>в сердце Москвы</span>
         </H2Title>
-        <p className="mb-2 text-[20px] leading-[118%] font-bold md:text-[24px]">
-          Искать совершенство в каждой детали
-        </p>
+        <H3Title className="mb-2">Искать совершенство в каждой детали</H3Title>
         <Paragraph>
           От выбора зерновой говядины до подачи стейка гостю. Наследие турецких
           мастеров, многолетний опыт — вот что остаётся за кадром, но

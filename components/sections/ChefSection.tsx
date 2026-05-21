@@ -8,6 +8,7 @@ import slide3 from "@/public/slide3.png";
 import slide4 from "@/public/slide4.png";
 import steiki from "@/public/steiki.jpg";
 import Image from "next/image";
+import H3Title from "../ui/H3Title";
 
 const chefSlides = [
   { src: slide1, alt: "Стейк Meat_Coin крупным планом" },
@@ -29,9 +30,9 @@ export default function ChefSection() {
           </span>
         </H2Title>
 
-        <p className="mb-2 text-[20px] leading-[118%] font-bold">
+        <H3Title className="mb-2">
           Сегодня он является главным архитекторм вкуса Meat_Coin в Москве
-        </p>
+        </H3Title>
         <Paragraph className="mb-2">
           Каждое его движение у открытого огня как часть ритуала, за которым
           можно наблюдать бесконечно
@@ -106,9 +107,9 @@ export function ChefDesktopSection() {
         </div>
 
         <div className="max-w-129.25 self-end pt-2">
-          <p className="mb-2 text-[20px] leading-[118%] font-bold">
+          <H3Title className="mb-2">
             Сегодня он является главным архитекторм вкуса Meat_Coin в Москве
-          </p>
+          </H3Title>
           <Paragraph className="text-beige">
             Каждое его движение у открытого огня как часть ритуала, за которым
             можно наблюдать бесконечно

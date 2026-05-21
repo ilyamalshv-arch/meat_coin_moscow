@@ -2,6 +2,7 @@ import ChefSection from "@/components/sections/ChefSection";
 import CuisineSection from "@/components/sections/CuisineSection";
 import CultureSection from "@/components/sections/CultureSection";
 import HeroSection from "@/components/sections/HeroSection";
+import SpecialOffersSection from "@/components/sections/SpecialOffersSection";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <CultureSection />
       <ChefSection />
       <CuisineSection />
+      <SpecialOffersSection />
     </main>
   );
 }
