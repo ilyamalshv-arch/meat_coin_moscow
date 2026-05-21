@@ -21,6 +21,8 @@ type SpecialOffer = {
   imageAlt: string;
   title: string;
   date: string;
+  descriptionLabel: string;
+  description: string;
   href: string;
 };
 
@@ -31,6 +33,9 @@ const specialOffers: SpecialOffer[] = [
     imageAlt: "Афиша гала-ужина Meat_Coin",
     title: "Гала-ужин в Meat_Coin",
     date: "26 марта в 19:30",
+    descriptionLabel: "Эксклюзивный гала-ужин во МИТКОИН",
+    description:
+      "26 марта состоится незабываемый гала-ужин в 4 руки от Хайяма Аминова",
     href: "#",
   },
   {
@@ -39,6 +44,9 @@ const specialOffers: SpecialOffer[] = [
     imageAlt: "Афиша гала-ужина Meat_Coin",
     title: "Гала-ужин в Meat_Coin",
     date: "26 марта в 19:30",
+    descriptionLabel: "Эксклюзивный гала-ужин во МИТКОИН",
+    description:
+      "26 марта состоится незабываемый гала-ужин в 4 руки от Хайяма Аминова",
     href: "#",
   },
   {
@@ -47,6 +55,9 @@ const specialOffers: SpecialOffer[] = [
     imageAlt: "Афиша гала-ужина Meat_Coin",
     title: "Гала-ужин в Meat_Coin",
     date: "26 марта в 19:30",
+    descriptionLabel: "Эксклюзивный гала-ужин во МИТКОИН",
+    description:
+      "26 марта состоится незабываемый гала-ужин в 4 руки от Хайяма Аминова",
     href: "#",
   },
   {
@@ -55,28 +66,41 @@ const specialOffers: SpecialOffer[] = [
     imageAlt: "Афиша гала-ужина Meat_Coin",
     title: "Гала-ужин в Meat_Coin",
     date: "26 марта в 19:30",
+    descriptionLabel: "Эксклюзивный гала-ужин во МИТКОИН",
+    description:
+      "26 марта состоится незабываемый гала-ужин в 4 руки от Хайяма Аминова",
     href: "#",
   },
 ];
 
 function SpecialOfferCard({ offer }: { offer: SpecialOffer }) {
   return (
-    <article className="border-b border-(--color-devider) py-4">
-      <div className="mb-4 overflow-hidden rounded-sm">
-        <div className="relative aspect-square">
-          <Image src={offer.imageSrc} alt={offer.imageAlt} />
-        </div>
+    <article className="border-b border-(--color-devider) py-4 md:grid md:grid-cols-[300px_319px_389px] md:items-start md:gap-x-34 md:py-8">
+      <div className="mb-4 overflow-hidden rounded-sm md:mb-0 md:w-75">
+        <Image src={offer.imageSrc} alt={offer.imageAlt} className="md:w-75" />
       </div>
 
-      <H3Title className="mb-2">{offer.title}</H3Title>
+      <div className="md:flex md:flex-col md:items-start ">
+        <H3Title className="mb-2 md:mb-2">{offer.title}</H3Title>
 
-      <Tag text={offer.date} variant="gray" className="mb-7" />
+        <Tag text={offer.date} variant="gray" className="mb-7 md:mb-0" />
+      </div>
 
-      <Link href={offer.href}>
-        <Paragraph className="flex items-center gap-2 text-(--color-accent)">
-          Записаться <ArrowIcon />
+      <div className="md:flex md:flex-col md:items-start">
+        <Paragraph className="hidden text-(--color-gray) md:mb-2 md:block">
+          {offer.descriptionLabel}
         </Paragraph>
-      </Link>
+
+        <Paragraph className="hidden md:mb-7 md:block md:max-w-97.25">
+          {offer.description}
+        </Paragraph>
+
+        <Link href={offer.href}>
+          <Paragraph className="flex items-center gap-2 text-(--color-accent)">
+            Записаться <ArrowIcon />
+          </Paragraph>
+        </Link>
+      </div>
     </article>
   );
 }
