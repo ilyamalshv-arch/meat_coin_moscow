@@ -1,32 +1,35 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { useState } from 'react'
-import { RESTAURANTS } from '../../consts/restaurants'
-import { COPYRIGHT_TEXT } from '../../consts/site'
-import Button from './Button'
-import Dropdown from './Dropdown'
-import Paragraph from './Paragraph'
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { RESTAURANTS } from "../../consts/restaurants";
+import { COPYRIGHT_TEXT } from "../../consts/site";
+import Button from "./Button";
+import Dropdown from "./Dropdown";
+import Paragraph from "./Paragraph";
 
 interface NavItem {
-  title: string
-  link: string
+  title: string;
+  link?: string;
+  dropdown?: boolean;
 }
 
 interface MobileMenuProps {
-  isOpen: boolean
-  navItems: NavItem[]
-  onClose: () => void
+  isOpen: boolean;
+  navItems: NavItem[];
+  onClose: () => void;
 }
 
 const MobileMenu = ({ isOpen, navItems, onClose }: MobileMenuProps) => {
-  const [isRestaurantsOpen, setIsRestaurantsOpen] = useState(false)
+  const [isRestaurantsOpen, setIsRestaurantsOpen] = useState(false);
 
   return (
     <div
       className={`fixed inset-0 z-1100 bg-black/28 backdrop-blur-md transition-opacity duration-500 md:hidden ${
-        isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+        isOpen
+          ? "pointer-events-auto opacity-100"
+          : "pointer-events-none opacity-0"
       }`}
       onClick={onClose}
       aria-hidden={!isOpen}
@@ -34,8 +37,8 @@ const MobileMenu = ({ isOpen, navItems, onClose }: MobileMenuProps) => {
       <div
         className={`absolute top-16.5 right-0 left-0 origin-top bg-(--color-beige) transition-[opacity,clip-path] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           isOpen
-            ? 'opacity-100 [clip-path:inset(0_0_0_0)]'
-            : 'opacity-0 [clip-path:inset(0_0_100%_0)]'
+            ? "opacity-100 [clip-path:inset(0_0_0_0)]"
+            : "opacity-0 [clip-path:inset(0_0_100%_0)]"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -51,7 +54,12 @@ const MobileMenu = ({ isOpen, navItems, onClose }: MobileMenuProps) => {
               trigger={<Paragraph disableAnimation>Рестораны</Paragraph>}
             >
               {RESTAURANTS.map((item) => (
-                <Link key={item.city} href="/" className="group flex flex-col" onClick={onClose}>
+                <Link
+                  key={item.city}
+                  href="/"
+                  className="group flex flex-col"
+                  onClick={onClose}
+                >
                   <Paragraph className="leading-[120%]!">{item.city}</Paragraph>
                   <Paragraph className="text-(--color-gray)">
                     {item.restaurant}
@@ -61,16 +69,18 @@ const MobileMenu = ({ isOpen, navItems, onClose }: MobileMenuProps) => {
             </Dropdown>
 
             <nav className="flex flex-col">
-              {navItems.map((item) => (
-                <Link
-                  key={item.title}
-                  href={item.link}
-                  className="py-4 text-base leading-[148%] font-medium"
-                  onClick={onClose}
-                >
-                  {item.title}
-                </Link>
-              ))}
+              {navItems
+                .filter((item) => !item.dropdown)
+                .map((item) => (
+                  <Link
+                    key={item.title}
+                    href={item.link!}
+                    className="py-4 text-base leading-[148%] font-medium"
+                    onClick={onClose}
+                  >
+                    {item.title}
+                  </Link>
+                ))}
             </nav>
           </div>
 
@@ -93,7 +103,7 @@ const MobileMenu = ({ isOpen, navItems, onClose }: MobileMenuProps) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MobileMenu
+export default MobileMenu;
