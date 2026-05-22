@@ -20,6 +20,8 @@ type PhotoSliderProps = {
   slides: PhotoSlide[];
   className?: string;
   imgClassName?: string;
+  slideClassName?: string;
+  indicatorsClassName?: string;
   indicatorTone?: "light" | "dark";
 };
 
@@ -27,6 +29,8 @@ const PhotoSlider = ({
   slides,
   className,
   imgClassName,
+  slideClassName,
+  indicatorsClassName,
   indicatorTone = "light",
 }: PhotoSliderProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -85,7 +89,7 @@ const PhotoSlider = ({
     <div className={className}>
       <div
         ref={containerRef}
-        className="-mx-4 flex snap-x snap-mandatory gap-2 overflow-x-auto px-4 no-scrollbar md:mx-0 md:px-0"
+        className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-2 overflow-x-auto px-4 md:mx-0 md:-mr-20 md:gap-7 md:px-0"
       >
         {slides.map((slide, index) => (
           <div
@@ -93,7 +97,10 @@ const PhotoSlider = ({
             ref={(element) => {
               slideRefs.current[index] = element;
             }}
-            className="w-[calc(100vw-2rem)] max-w-[22rem] shrink-0 snap-center md:w-[18rem] lg:w-[19rem]"
+            className={clsx(
+              "w-[calc(100vw-2rem)] max-w-[22rem] shrink-0 snap-center md:w-auto",
+              slideClassName,
+            )}
           >
             <div className="relative">
               <Image
@@ -116,14 +123,14 @@ const PhotoSlider = ({
               <Paragraph
                 className={clsx(
                   slide.title ? "mt-2" : "mt-4",
-                  "text-(--color-dark-black)/78 tracking-[0%]",
+                  "tracking-[0%] text-(--color-dark-black)/78",
                 )}
               >
                 {slide.description}
               </Paragraph>
             ) : null}
             {slide.description2 ? (
-              <Paragraph className="mt-2 text-(--color-dark-black)/78 tracking-[0%]">
+              <Paragraph className="mt-2 tracking-[0%] text-(--color-dark-black)/78">
                 {slide.description2}
               </Paragraph>
             ) : null}
@@ -131,7 +138,12 @@ const PhotoSlider = ({
         ))}
       </div>
 
-      <div className="mt-4 flex items-center justify-center gap-2">
+      <div
+        className={clsx(
+          "mt-4 flex items-center justify-center gap-2",
+          indicatorsClassName,
+        )}
+      >
         {slides.map((slide, index) => (
           <button
             key={`indicator-${slide.id ?? `${slide.alt}-${index}`}`}

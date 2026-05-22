@@ -75,12 +75,12 @@ const specialOffers: SpecialOffer[] = [
 
 function SpecialOfferCard({ offer }: { offer: SpecialOffer }) {
   return (
-    <article className="border-b border-(--color-devider) py-4 md:grid md:grid-cols-[300px_319px_389px] md:items-start md:gap-x-34 md:py-8">
+    <article className="border-b border-(--color-devider) py-4 md:grid md:grid-cols-[300px_319px_389px] md:items-start md:gap-x-34 md:pt-0 md:pb-4">
       <div className="mb-4 overflow-hidden rounded-sm md:mb-0 md:w-75">
         <Image src={offer.imageSrc} alt={offer.imageAlt} className="md:w-75" />
       </div>
 
-      <div className="md:flex md:flex-col md:items-start ">
+      <div className="md:flex md:flex-col md:items-start">
         <H3Title className="mb-2 md:mb-2">{offer.title}</H3Title>
 
         <Tag text={offer.date} variant="gray" className="mb-7 md:mb-0" />
@@ -107,12 +107,12 @@ function SpecialOfferCard({ offer }: { offer: SpecialOffer }) {
 
 export default function SpecialOffersSection() {
   return (
-    <section className="mb-12 md:mb-0 md:mt-30 mt-12">
-      <div className="md:flex md:gap-[295px]">
+    <section className="mt-12 mb-12 md:mt-30 md:mb-0">
+      <div className="md:flex md:gap-73.75">
         <Paragraph className="mb-2 text-(--color-gray)">
           Особые моменты
         </Paragraph>
-        <div className="md:flex md:flex-col md:gap-2 md:w-[470px]">
+        <div className="md:flex md:w-117.5 md:flex-col md:gap-2">
           <H2Title className="mb-4 md:mb-2">Спецпредложения</H2Title>
 
           <Paragraph className="mb-2">
@@ -133,13 +133,13 @@ export default function SpecialOffersSection() {
         ))}
       </div>
 
-      <div className="flex flex-col gap-2 mt-9">
+      <div className="mt-9 flex flex-col gap-2 md:mt-18 md:flex-row md:items-center md:justify-center md:gap-4">
         <Button
           text="Все события"
           variant="secondary"
-          className="w-full text-white"
+          className="w-full text-white md:w-102"
         />
-        <Paragraph className="text-gray">
+        <Paragraph className="text-gray md:w-75">
           Информация о ближайших событиях появится здесь
         </Paragraph>
       </div>

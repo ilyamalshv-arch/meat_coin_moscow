@@ -2,6 +2,7 @@ import ChefSection from "@/components/sections/ChefSection";
 import CuisineSection from "@/components/sections/CuisineSection";
 import CultureSection from "@/components/sections/CultureSection";
 import HeroSection from "@/components/sections/HeroSection";
+import PrivateEventsSection from "@/components/sections/PrivateEventsSection";
 import SpecialOffersSection from "@/components/sections/SpecialOffersSection";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <ChefSection />
       <CuisineSection />
       <SpecialOffersSection />
+      <PrivateEventsSection />
     </main>
   );
 }
