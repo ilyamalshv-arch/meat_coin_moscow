@@ -48,7 +48,7 @@ const butcherPhotos = [
 
 export default function ButcherShopSection() {
   return (
-    <section className="-mx-4 mb-12 px-4 py-6 md:-mx-20 md:mb-30 md:px-20 md:pt-8 md:pb-32">
+    <section className="-mx-4 mb-12 px-4 py-6 md:-mx-20 md:mb-30 md:px-20 md:pt-8 md:pb-0">
       <div className="md:relative md:min-h-111">
         <H2Title className="mb-4 md:mb-18 md:ml-109 md:max-w-178">
           <span className="text-(--color-accent)">Мясная лавка</span> Выберите
