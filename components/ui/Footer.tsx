@@ -15,7 +15,7 @@ const Footer = () => {
   const [isRestaurantsOpen, setIsRestaurantsOpen] = useState(false)
 
   return (
-    <footer className="mx-auto max-w-360 overflow-hidden px-4 py-12 md:px-20 md:py-11">
+    <footer className="mx-auto max-w-360 overflow-hidden px-4 pb-12 pt-7 md:px-20 md:pb-11 md:pt-0">
       <div className="hidden grid-cols-12 gap-7 md:grid">
         <div className="col-span-4 flex h-full flex-col justify-between gap-4">
           <div className="gap7 flex flex-col gap-7">
@@ -115,7 +115,7 @@ const Footer = () => {
 
       <div className="bg-devider mt-7 mb-11 hidden h-[1.5px] w-full md:flex" />
 
-      <div className="flex flex-col gap-6 py-11 md:grid md:grid-cols-12 md:gap-7">
+      <div className="flex flex-col gap-6 md:py-11 md:grid md:grid-cols-12 md:gap-7">
         {(
           [
             {
@@ -149,9 +149,9 @@ const Footer = () => {
           ] as const
         ).map((col) => (
           <div key={col.title} className="flex flex-col gap-4 md:col-span-4">
-            <p className="text-sm leading-[148%] font-medium tracking-[1%] text-(--color-gray)">
+            <Paragraph className="text-(--color-gray)">
               {col.title}
-            </p>
+            </Paragraph>
             {'header' in col && (
               <Dropdown
                 isOpen={isRestaurantsOpen}

@@ -16,7 +16,7 @@ const loyaltyBenefits = [
 
 export default function LoyaltyProgramSection() {
   return (
-    <section className="-mx-4 px-4 pt-0 pb-12 md:-mx-20 md:grid md:grid-cols-[408px_minmax(0,1fr)] md:gap-x-7 md:px-20 md:pt-0 md:pb-16">
+    <section className="-mx-4 px-4 pt-0 pb-13 md:-mx-20 md:grid md:grid-cols-[408px_minmax(0,1fr)] md:gap-x-7 md:px-20 md:pt-0 md:pb-16">
       <Paragraph className="mb-2 text-(--color-gray) md:col-start-1 md:row-start-1 md:mb-0 md:pt-1">
         Станьте частью закрытого круга
       </Paragraph>

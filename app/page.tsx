@@ -1,5 +1,6 @@
 import ButcherShopSection from "@/components/sections/ButcherShopSection";
 import ChefSection from "@/components/sections/ChefSection";
+import ContactsSection from "@/components/sections/ContactsSection";
 import CuisineSection from "@/components/sections/CuisineSection";
 import CultureSection from "@/components/sections/CultureSection";
 import HeroSection from "@/components/sections/HeroSection";
@@ -22,6 +23,7 @@ export default function Home() {
       <SpaceAestheticsSection />
       <ButcherShopSection />
       <LoyaltyProgramSection />
+      <ContactsSection />
     </main>
   );
 }
