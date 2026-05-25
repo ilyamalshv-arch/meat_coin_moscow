@@ -29,11 +29,14 @@ export default function TableReservationSection() {
           <Button text="Забронировать" className="w-full" />
         </div>
 
-        <Image
-          src={reservationImage}
-          alt="Зал ресторана Meat_Coin с сервированными столами"
-          className="h-60 w-full rounded-sm object-cover md:h-full"
-        />
+        <div className="md:-mr-20 md:flex-1">
+          <Image
+            src={reservationImage}
+            alt="Зал ресторана Meat_Coin с сервированными столами"
+            className="h-60 w-full rounded-sm object-cover md:h-full"
+            sizes="(min-width: 768px) calc(100vw - 516px), 100vw"
+          />
+        </div>
       </div>
     </section>
   );
