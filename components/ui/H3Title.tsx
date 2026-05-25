@@ -24,7 +24,7 @@ const H3Title = ({ children, delay = 0, className, animate: animateProp }: H3Tit
         delay,
       }}
       className={clsx(
-        'text-xl leading-[118%] font-bold tracking-normal md:text-2xl md:leading-[116%] md:font-extrabold md:tracking-normal',
+        'text-xl leading-[118%] font-bold tracking-normal md:text-2xl md:font-extrabold md:tracking-normal',
         className,
       )}
     >

@@ -1,3 +1,4 @@
+import ButcherShopSection from "@/components/sections/ButcherShopSection";
 import ChefSection from "@/components/sections/ChefSection";
 import CuisineSection from "@/components/sections/CuisineSection";
 import CultureSection from "@/components/sections/CultureSection";
@@ -18,6 +19,7 @@ export default function Home() {
       <PrivateEventsSection />
       <TableReservationSection />
       <SpaceAestheticsSection />
+      <ButcherShopSection />
     </main>
   );
 }
