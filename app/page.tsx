@@ -4,6 +4,7 @@ import CultureSection from "@/components/sections/CultureSection";
 import HeroSection from "@/components/sections/HeroSection";
 import PrivateEventsSection from "@/components/sections/PrivateEventsSection";
 import SpecialOffersSection from "@/components/sections/SpecialOffersSection";
+import TableReservationSection from "@/components/sections/TableReservationSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <CuisineSection />
       <SpecialOffersSection />
       <PrivateEventsSection />
+      <TableReservationSection />
     </main>
   );
 }

@@ -1,20 +1,20 @@
 import H2Title from "@/components/ui/H2Title";
 import Paragraph from "@/components/ui/Paragraph";
 import PhotoSlider from "@/components/ui/PhotoSlider";
-import chef from "@/public/chef.png";
-import slide1 from "@/public/slide1.png";
-import slide2 from "@/public/slide2.png";
-import slide3 from "@/public/slide3.png";
-import slide4 from "@/public/slide4.png";
-import steiki from "@/public/steiki.jpg";
+import chef from "@/public/chef-portrait.png";
+import chefGallerySteak1 from "@/public/chef-gallery-steak-1.png";
+import chefGallerySteak2 from "@/public/chef-gallery-steak-2.png";
+import chefGallerySteak3 from "@/public/chef-gallery-steak-3.png";
+import chefGallerySteak4 from "@/public/chef-gallery-steak-4.png";
+import chefSteaks from "@/public/chef-steaks.jpg";
 import Image from "next/image";
 import H3Title from "../ui/H3Title";
 
 const chefSlides = [
-  { src: slide1, alt: "Стейк Meat_Coin крупным планом" },
-  { src: slide2, alt: "Команда Meat_Coin" },
-  { src: slide3, alt: "Шеф Meat_Coin за приготовлением мяса" },
-  { src: slide4, alt: "Подача мясного блюда в Meat_Coin" },
+  { src: chefGallerySteak1, alt: "Стейк Meat_Coin крупным планом" },
+  { src: chefGallerySteak2, alt: "Команда Meat_Coin" },
+  { src: chefGallerySteak3, alt: "Шеф Meat_Coin за приготовлением мяса" },
+  { src: chefGallerySteak4, alt: "Подача мясного блюда в Meat_Coin" },
 ];
 
 export default function ChefSection() {
@@ -76,7 +76,7 @@ export function ChefDesktopSection() {
 
         <div className="col-start-3 row-start-1 overflow-hidden rounded-xs">
           <Image
-            src={slide1}
+            src={chefGallerySteak1}
             alt="Стейк Meat_Coin крупным планом"
             className="h-75 w-full object-cover"
           />
@@ -84,7 +84,7 @@ export function ChefDesktopSection() {
 
         <div className="col-start-3 row-start-2 overflow-hidden rounded-xs">
           <Image
-            src={slide2}
+            src={chefGallerySteak2}
             alt="Команда Meat_Coin"
             className="h-75 w-full object-cover"
           />
@@ -92,7 +92,7 @@ export function ChefDesktopSection() {
 
         <div className="col-start-3 row-start-3 overflow-hidden rounded-xs">
           <Image
-            src={slide3}
+            src={chefGallerySteak3}
             alt="Шеф Meat_Coin за приготовлением мяса"
             className="h-75 w-full object-cover"
           />
@@ -100,7 +100,7 @@ export function ChefDesktopSection() {
 
         <div className="col-start-3 row-start-4 overflow-hidden rounded-xs">
           <Image
-            src={slide4}
+            src={chefGallerySteak4}
             alt="Подача мясного блюда в Meat_Coin"
             className="h-75 w-full object-cover"
           />
@@ -116,22 +116,22 @@ export function ChefDesktopSection() {
           </Paragraph>
         </div>
 
-        <Paragraph className="max-w-129.25 self-end text-beige">
+        <Paragraph className="text-beige max-w-129.25 self-end">
           Сегодня он является главным архитекторм вкуса Meat_Coin в Москве.
           Каждое его движение у открытого огня как часть ритуала, за которым
           можно наблюдать бесконечно
         </Paragraph>
 
-        <Paragraph className="max-w-129.25 self-end text-beige">
+        <Paragraph className="text-beige max-w-129.25 self-end">
           Мы работаем с лучшими фермерскими хозяйствами. В наших камерах сухого
           вызревания мясо проводит недели для получения неповторимого вкуса
         </Paragraph>
       </div>
 
       <Image
-        src={steiki}
+        src={chefSteaks}
         alt="Стейки в ресторане Meat_Coin Steak & Terrace"
-        className="rounded-sm h-180"
+        className="h-180 rounded-sm"
       />
     </section>
   );

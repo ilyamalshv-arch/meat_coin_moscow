@@ -2,7 +2,7 @@ import H2Title from "@/components/ui/H2Title";
 import H3Title from "@/components/ui/H3Title";
 import Paragraph from "@/components/ui/Paragraph";
 import Tag from "@/components/ui/Tag";
-import specialoffers1 from "@/public/specialoffers1.png";
+import specialOfferGalaDinner from "@/public/special-offer-gala-dinner.png";
 import Image from "next/image";
 import Link from "next/link";
 import ArrowIcon from "../icons/ArrowIcon";
@@ -29,7 +29,7 @@ type SpecialOffer = {
 const specialOffers: SpecialOffer[] = [
   {
     id: "gala-dinner-1",
-    imageSrc: specialoffers1,
+    imageSrc: specialOfferGalaDinner,
     imageAlt: "Афиша гала-ужина Meat_Coin",
     title: "Гала-ужин в Meat_Coin",
     date: "26 марта в 19:30",
@@ -40,7 +40,7 @@ const specialOffers: SpecialOffer[] = [
   },
   {
     id: "gala-dinner-2",
-    imageSrc: specialoffers1,
+    imageSrc: specialOfferGalaDinner,
     imageAlt: "Афиша гала-ужина Meat_Coin",
     title: "Гала-ужин в Meat_Coin",
     date: "26 марта в 19:30",
@@ -51,7 +51,7 @@ const specialOffers: SpecialOffer[] = [
   },
   {
     id: "gala-dinner-3",
-    imageSrc: specialoffers1,
+    imageSrc: specialOfferGalaDinner,
     imageAlt: "Афиша гала-ужина Meat_Coin",
     title: "Гала-ужин в Meat_Coin",
     date: "26 марта в 19:30",
@@ -62,7 +62,7 @@ const specialOffers: SpecialOffer[] = [
   },
   {
     id: "gala-dinner-4",
-    imageSrc: specialoffers1,
+    imageSrc: specialOfferGalaDinner,
     imageAlt: "Афиша гала-ужина Meat_Coin",
     title: "Гала-ужин в Meat_Coin",
     date: "26 марта в 19:30",

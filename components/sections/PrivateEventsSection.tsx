@@ -3,11 +3,11 @@ import H2Title from "@/components/ui/H2Title";
 import Paragraph from "@/components/ui/Paragraph";
 import PhotoSlider from "@/components/ui/PhotoSlider";
 import Tag from "@/components/ui/Tag";
-import celebration from "@/public/celebration.png";
-import celebration1 from "@/public/celebration1.png";
-import celebration2 from "@/public/celebration2.png";
-import celebration3 from "@/public/celebration3.png";
-import celebration4 from "@/public/celebration4.png";
+import privateEventsArchedHall from "@/public/private-events-arched-hall.png";
+import privateEventsBanquetHall from "@/public/private-events-banquet-hall.png";
+import privateEventsLounge from "@/public/private-events-lounge.png";
+import privateEventsTerrace from "@/public/private-events-terrace.png";
+import privateEventsVipTable from "@/public/private-events-vip-table.png";
 import Image from "next/image";
 import H3Title from "../ui/H3Title";
 
@@ -15,29 +15,29 @@ const eventTags = ["День рождения", "Семейные торжест
 const celebrationSlides = [
   {
     id: "celebration-1",
-    src: celebration1,
+    src: privateEventsVipTable,
     alt: "Приватный зал Meat_Coin с сервировкой",
   },
   {
     id: "celebration-2",
-    src: celebration2,
+    src: privateEventsBanquetHall,
     alt: "Интерьер зала Meat_Coin для частных мероприятий",
   },
   {
     id: "celebration-3",
-    src: celebration3,
+    src: privateEventsTerrace,
     alt: "Терраса Meat_Coin для частных мероприятий",
   },
   {
     id: "celebration-4",
-    src: celebration4,
+    src: privateEventsLounge,
     alt: "Приватное пространство Meat_Coin для торжеств",
   },
 ];
 
 export default function PrivateEventsSection() {
   return (
-    <section className="mb-12 md:mt-30">
+    <section className="mb-12 md:mt-30 md:mb-0">
       <div className="md:mb-18 md:flex md:items-center md:gap-7">
         <Paragraph className="mb-2 text-(--color-gray) md:mb-0 md:w-102">
           Проведение приватных мероприятий
@@ -48,7 +48,7 @@ export default function PrivateEventsSection() {
 
       <div className="md:flex md:gap-7">
         <Image
-          src={celebration}
+          src={privateEventsArchedHall}
           alt="Приватный зал Meat_Coin для камерных мероприятий"
           className="mb-9 md:mb-0 md:w-102"
         />

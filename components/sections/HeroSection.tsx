@@ -1,9 +1,9 @@
 import Button from "@/components/ui/Button";
 import H1Title from "@/components/ui/H1Title";
 import Paragraph from "@/components/ui/Paragraph";
-import lounge1Image from "@/public/lounge_1.jpg";
-import lounge2Image from "@/public/lounge_2.jpg";
-import terraceImage from "@/public/terrace.jpg";
+import lounge1Image from "@/public/hero-lounge-wine-room.jpg";
+import lounge2Image from "@/public/hero-private-dining-room.jpg";
+import terraceImage from "@/public/hero-terrace.jpg";
 import Image from "next/image";
 
 export default function HeroSection() {

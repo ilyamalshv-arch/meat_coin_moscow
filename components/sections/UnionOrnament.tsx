@@ -1,4 +1,4 @@
-import union from "@/public/union.png";
+import union from "@/public/ornament-union.png";
 import { clsx } from "clsx";
 import Image from "next/image";
 
@@ -10,7 +10,7 @@ export default function UnionOrnament({ className = "" }: UnionOrnamentProps) {
   return (
     <div
       className={clsx(
-        "flex justify-center md:mx-0 md:relative md:h-[252px] md:w-[66px] md:shrink-0 md:block",
+        "flex justify-center md:relative md:mx-0 md:block md:h-[252px] md:w-[66px] md:shrink-0",
         className,
       )}
     >
