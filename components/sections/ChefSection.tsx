@@ -1,6 +1,5 @@
 import H2Title from "@/components/ui/H2Title";
 import Paragraph from "@/components/ui/Paragraph";
-import PhotoSlider from "@/components/ui/PhotoSlider";
 import chefGallerySteak1 from "@/public/chef-gallery-steak-1.png";
 import chefGallerySteak2 from "@/public/chef-gallery-steak-2.png";
 import chefGallerySteak3 from "@/public/chef-gallery-steak-3.png";
@@ -10,6 +9,7 @@ import chefSteaks from "@/public/chef-steaks.jpg";
 import Image from "next/image";
 import GridSection from "../ui/GridSection";
 import H3Title from "../ui/H3Title";
+import PhotoSlider from "../ui/PhotoSlider";
 
 const chefSlides = [
   { src: chefGallerySteak1, alt: "Стейк Meat_Coin крупным планом" },
@@ -20,126 +20,56 @@ const chefSlides = [
 
 export default function ChefSection() {
   return (
-    <>
-      <ChefDesktopSection />
-      <ChefMobileSection />
-    </>
-  );
-}
-
-function ChefMobileSection() {
-  return (
-    <section className="mb-12 md:hidden">
-      <H2Title className="mb-6">
-        <span>мясной ресторан</span>
-        {", "}
-        <span className="text-accent">
-          где каждый стейк становится искусством
-        </span>
-      </H2Title>
-
-      <H3Title className="mb-2">
-        Сегодня он является главным архитекторм вкуса Meat_Coin в Москве
-      </H3Title>
-      <Paragraph className="mb-2">
-        Каждое его движение у открытого огня как часть ритуала, за которым можно
-        наблюдать бесконечно
-      </Paragraph>
-      <Paragraph className="mb-2">
-        Сегодня он является главным архитекторм вкуса Meat_Coin в Москве. Каждое
-        его движение у открытого огня как часть ритуала, за которым можно
-        наблюдать бесконечно{" "}
-      </Paragraph>
-      <Paragraph className="mb-6">
-        Мы работаем с лучшими фермерскими хозяйствами. В наших камерах сухого
-        вызревания мясо проводит недели для получения неповторимого вкуса{" "}
-      </Paragraph>
-
+    <GridSection className="gap-y-6 pb-12 md:gap-y-20! md:py-30">
       <Image
         src={chef}
-        alt="Шеф-повар ресторана Meat_Coin Steak & Terrace"
-        className="mb-6"
+        alt="Стейки в ресторане Meat_Coin Steak & Terrace"
+        className="order-2 col-span-5 md:order-1 md:col-span-4"
       />
-      <PhotoSlider slides={chefSlides} />
-    </section>
-  );
-}
 
-export function ChefDesktopSection() {
-  return (
-    <GridSection className="hidden md:grid">
-      <div className="grid grid-cols-[408px_517px_300px] grid-rows-[auto_auto_1fr_auto] gap-7 md:mb-20">
-        <div className="row-span-4">
-          <Image
-            src={chef}
-            alt="Шеф-повар ресторана Meat_Coin Steak & Terrace"
-            className="h-full max-h-165 rounded-t-[120px] object-cover object-center"
-          />
-        </div>
-
-        <H2Title className="max-w-129.25 text-[2.8rem] leading-[96%]">
-          <span className="text-accent">мясной ресторан,</span>{" "}
-          <span>где каждый стейк становится искусством</span>
+      <div className="text-beige order-1 col-span-5 flex flex-col md:order-2">
+        <H2Title className="text-accent pb-6 md:pb-116 md:text-white">
+          <span className="md:text-accent text-white">мясной ресторан,</span>{" "}
+          где каждый стейк становится искусством
         </H2Title>
-
-        <div className="col-start-3 row-start-1 overflow-hidden rounded-xs">
-          <Image
-            src={chefGallerySteak1}
-            alt="Стейк Meat_Coin крупным планом"
-            className="h-75 w-full object-cover"
-          />
-        </div>
-
-        <div className="col-start-3 row-start-2 overflow-hidden rounded-xs">
-          <Image
-            src={chefGallerySteak2}
-            alt="Команда Meat_Coin"
-            className="h-75 w-full object-cover"
-          />
-        </div>
-
-        <div className="col-start-3 row-start-3 overflow-hidden rounded-xs">
-          <Image
-            src={chefGallerySteak3}
-            alt="Шеф Meat_Coin за приготовлением мяса"
-            className="h-75 w-full object-cover"
-          />
-        </div>
-
-        <div className="col-start-3 row-start-4 overflow-hidden rounded-xs">
-          <Image
-            src={chefGallerySteak4}
-            alt="Подача мясного блюда в Meat_Coin"
-            className="h-75 w-full object-cover"
-          />
-        </div>
-
-        <div className="max-w-129.25 self-end pt-2">
-          <H3Title className="mb-2">
-            Сегодня он является главным архитекторм вкуса Meat_Coin в Москве
-          </H3Title>
-          <Paragraph className="text-beige">
-            Каждое его движение у открытого огня как часть ритуала, за которым
-            можно наблюдать бесконечно
-          </Paragraph>
-        </div>
-
-        <Paragraph className="text-beige max-w-129.25 self-end">
+        <H3Title className="pb-2">
+          Сегодня он является главным архитекторм вкуса Meat_Coin в Москве
+        </H3Title>
+        <Paragraph className="pb-2 md:pb-46.5">
+          Каждое его движение у открытого огня как часть ритуала, за которым
+          можно наблюдать бесконечно
+        </Paragraph>
+        <Paragraph className="pb-2 md:pb-46.5">
           Сегодня он является главным архитекторм вкуса Meat_Coin в Москве.
           Каждое его движение у открытого огня как часть ритуала, за которым
           можно наблюдать бесконечно
         </Paragraph>
-
-        <Paragraph className="text-beige max-w-129.25 self-end">
+        <Paragraph>
           Мы работаем с лучшими фермерскими хозяйствами. В наших камерах сухого
           вызревания мясо проводит недели для получения неповторимого вкуса
         </Paragraph>
       </div>
 
+      <div className="order-3 col-span-5 hidden md:col-span-3 md:flex md:flex-col md:gap-7">
+        {chefSlides.map((slide) => (
+          <Image
+            key={slide.alt}
+            src={slide.src}
+            alt={slide.alt}
+            className="h-75 w-full rounded-sm object-cover"
+          />
+        ))}
+      </div>
+
+      <PhotoSlider
+        slides={chefSlides}
+        className="order-3 col-span-5 md:hidden"
+      />
+
       <Image
         src={chefSteaks}
         alt="Стейки в ресторане Meat_Coin Steak & Terrace"
-        className="h-180.5 w-320 rounded-sm"
+        className="order-4 col-span-5 hidden h-75 w-full rounded-sm object-cover md:col-span-12 md:block md:h-180"
       />
     </GridSection>
   );
