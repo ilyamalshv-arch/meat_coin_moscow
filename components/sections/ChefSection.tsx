@@ -1,13 +1,14 @@
 import H2Title from "@/components/ui/H2Title";
 import Paragraph from "@/components/ui/Paragraph";
 import PhotoSlider from "@/components/ui/PhotoSlider";
-import chef from "@/public/chef-portrait.png";
 import chefGallerySteak1 from "@/public/chef-gallery-steak-1.png";
 import chefGallerySteak2 from "@/public/chef-gallery-steak-2.png";
 import chefGallerySteak3 from "@/public/chef-gallery-steak-3.png";
 import chefGallerySteak4 from "@/public/chef-gallery-steak-4.png";
+import chef from "@/public/chef-portrait.png";
 import chefSteaks from "@/public/chef-steaks.jpg";
 import Image from "next/image";
+import GridSection from "../ui/GridSection";
 import H3Title from "../ui/H3Title";
 
 const chefSlides = [
@@ -66,7 +67,7 @@ function ChefMobileSection() {
 
 export function ChefDesktopSection() {
   return (
-    <section className="mb-30 hidden md:block">
+    <GridSection className="hidden md:grid">
       <div className="grid grid-cols-[408px_517px_300px] grid-rows-[auto_auto_1fr_auto] gap-7 md:mb-20">
         <div className="row-span-4">
           <Image
@@ -138,8 +139,8 @@ export function ChefDesktopSection() {
       <Image
         src={chefSteaks}
         alt="Стейки в ресторане Meat_Coin Steak & Terrace"
-        className="h-180 rounded-sm"
+        className="h-180.5 w-320 rounded-sm"
       />
-    </section>
+    </GridSection>
   );
 }

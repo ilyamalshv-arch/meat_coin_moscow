@@ -6,7 +6,7 @@ import Paragraph from "../ui/Paragraph";
 
 export default function CultureSection() {
   return (
-    <GridSection className="py-12 md:items-center md:py-83.5">
+    <GridSection className="pb-12 md:items-center md:py-83.5">
       <Ornament className="py-12 md:col-span-1 md:py-0" />
       <div className="col-span-5 md:col-span-6 md:col-start-5">
         <H2Title className="mb-6 md:mb-7" delay={0.2}>

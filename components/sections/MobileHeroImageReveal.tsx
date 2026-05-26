@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
+import GridSection from "@/components/ui/GridSection";
 import H1Title from "@/components/ui/H1Title";
 import Paragraph from "@/components/ui/Paragraph";
 import heroSteakTerraceMobileImage from "@/public/hero-steak-terrace-mobile.jpg";
@@ -31,9 +32,12 @@ export default function MobileHeroImageReveal() {
   const clipPath = useTransform(imageProgress, buildClipPath);
 
   return (
-    <section ref={containerRef} className="relative -mx-4 h-[200svh] md:hidden">
-      <div className="sticky top-0 h-svh overflow-hidden px-4 pt-6">
-        <div className="mx-auto flex h-full w-full max-w-360 flex-col">
+    <GridSection
+      ref={containerRef}
+      className="relative h-[200svh] px-0! md:hidden"
+    >
+      <div className="sticky top-0 col-span-5 h-svh overflow-hidden px-4 pt-6">
+        <div className="flex h-full w-full flex-col">
           <Paragraph className="mb-2 text-[16px] tracking-[1%] text-(--color-gray)">
             Бренд, где выбор отрубов, выдержка и прожарка — традиция поколений
           </Paragraph>
@@ -66,7 +70,6 @@ export default function MobileHeroImageReveal() {
             priority
           />
         </motion.div>
-
       </div>
 
       <Button
@@ -74,6 +77,6 @@ export default function MobileHeroImageReveal() {
         variant="primary"
         className="fixed right-4 bottom-4 left-4 z-1000 w-auto!"
       />
-    </section>
+    </GridSection>
   );
 }
