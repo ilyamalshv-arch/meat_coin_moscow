@@ -53,7 +53,7 @@ const PhotoSliderTabs = ({
         slides={items[activeIndex].slides}
         className={sliderClassName}
         imgClassName={imgClassName}
-        indicatorTone="dark"
+        indicatorTone="grey"
       />
     </div>
   )

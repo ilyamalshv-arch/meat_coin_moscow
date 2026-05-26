@@ -10,7 +10,6 @@ export type PhotoSlide = {
   id?: string;
   src: StaticImageData;
   alt: string;
-  imageLabel?: string;
   title?: string;
   description?: string;
   description2?: string;
@@ -22,7 +21,7 @@ type PhotoSliderProps = {
   imgClassName?: string;
   slideClassName?: string;
   indicatorsClassName?: string;
-  indicatorTone?: "light" | "dark";
+  indicatorTone?: "light" | "grey";
 };
 
 const PhotoSlider = ({
@@ -98,24 +97,17 @@ const PhotoSlider = ({
               slideRefs.current[index] = element;
             }}
             className={clsx(
-              "w-[calc(100vw-2rem)] max-w-[22rem] shrink-0 snap-center md:w-auto",
+              "w-[calc(100vw-2rem)] max-w-88 shrink-0 snap-center md:w-auto",
               slideClassName,
             )}
           >
-            <div className="relative">
-              <Image
-                src={slide.src}
-                alt={slide.alt}
-                className={clsx("w-full rounded-sm object-cover", imgClassName)}
-              />
-              {slide.imageLabel ? (
-                <div className="pointer-events-none absolute inset-x-4 bottom-4 rounded-sm bg-[linear-gradient(90deg,rgba(104,83,68,0.88)_0%,rgba(154,120,80,0.88)_50%,rgba(102,52,31,0.88)_100%)] px-4 py-3 text-center text-[1.125rem] leading-[120%] font-extrabold text-white shadow-[0_10px_30px_rgba(33,22,15,0.28)] backdrop-blur-[10px]">
-                  {slide.imageLabel}
-                </div>
-              ) : null}
-            </div>
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              className={clsx("w-full rounded-sm object-cover", imgClassName)}
+            />
             {slide.title ? (
-              <H3Title className="mt-2 text-(--color-dark-black) md:text-xl md:leading-[118%] md:font-bold">
+              <H3Title className="mt-2 text-(--color-grey-black) md:text-xl md:leading-[118%] md:font-bold">
                 {slide.title}
               </H3Title>
             ) : null}
@@ -123,14 +115,14 @@ const PhotoSlider = ({
               <Paragraph
                 className={clsx(
                   slide.title ? "mt-2" : "mt-4",
-                  "tracking-[0%] text-(--color-dark-black)/78",
+                  "tracking-[0%] text-dark-black/78",
                 )}
               >
                 {slide.description}
               </Paragraph>
             ) : null}
             {slide.description2 ? (
-              <Paragraph className="mt-2 tracking-[0%] text-(--color-dark-black)/78">
+              <Paragraph className="mt-2 tracking-[0%] text-dark-black/78">
                 {slide.description2}
               </Paragraph>
             ) : null}
@@ -153,15 +145,15 @@ const PhotoSlider = ({
             className={clsx(
               "h-3 rounded-full transition-all",
               indicatorTone === "light" && "border border-white/30",
-              indicatorTone === "dark" &&
-                "border border-(--color-dark-black)/20",
+              indicatorTone === "grey" &&
+                "border border-[#BBB6AF]",
               activeIndex === index
                 ? indicatorTone === "light"
                   ? "w-6 bg-white/60"
-                  : "w-6 bg-(--color-dark-black)"
+                  : "w-6 bg-[#BBB6AF]"
                 : indicatorTone === "light"
                   ? "w-3 bg-transparent hover:bg-white/20"
-                  : "w-3 bg-transparent hover:bg-(--color-dark-black)/15",
+                  : "w-3 bg-transparent hover:bg-dark-black/15",
             )}
           />
         ))}

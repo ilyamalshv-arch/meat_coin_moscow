@@ -32,7 +32,7 @@ export default function MobileHeroImageReveal() {
 
   return (
     <section ref={containerRef} className="relative -mx-4 h-[200svh] md:hidden">
-      <div className="sticky top-0 h-[100svh] overflow-hidden px-4 pt-6">
+      <div className="sticky top-0 h-svh overflow-hidden px-4 pt-6">
         <div className="mx-auto flex h-full w-full max-w-360 flex-col">
           <Paragraph className="mb-2 text-[16px] tracking-[1%] text-(--color-gray)">
             Бренд, где выбор отрубов, выдержка и прожарка — традиция поколений
@@ -67,12 +67,13 @@ export default function MobileHeroImageReveal() {
           />
         </motion.div>
 
-        <Button
-          text="Забронировать стол"
-          variant="primary"
-          className="fixed right-4 bottom-4 left-4 z-1000 !w-auto border-[1.5px] border-(--color-accent) py-4 text-center text-[16px] leading-[150%] text-white"
-        />
       </div>
+
+      <Button
+        text="Забронировать стол"
+        variant="primary"
+        className="fixed right-4 bottom-4 left-4 z-1000 w-auto!"
+      />
     </section>
   );
 }

@@ -25,7 +25,7 @@ export default function HeroSection() {
             <Button
               text="Забронировать стол"
               variant="primary"
-              className="fixed right-4 bottom-4 left-4 z-1000 w-auto border-[1.5px] border-(--color-accent) py-4 text-center text-[16px] leading-[150%] text-white md:static md:z-auto md:order-1 md:!w-fit"
+              className="fixed right-4 bottom-4 left-4 z-[1000] w-auto border-[1.5px] border-(--color-accent) py-4 text-center text-[16px] leading-[150%] text-white md:static md:z-auto md:order-1 md:!w-fit"
             />
           </div>
         </div>
