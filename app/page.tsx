@@ -12,7 +12,7 @@ import TableReservationSection from "@/components/sections/TableReservationSecti
 
 export default function Home() {
   return (
-    <main className="px-4 md:px-20">
+    <main>
       <HeroSection />
       <CultureSection />
       <ChefSection />

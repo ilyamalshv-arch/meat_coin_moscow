@@ -31,7 +31,7 @@ const Paragraph = ({
         damping: 15,
         delay,
       }}
-      className={`text-base leading-[148%] font-medium tracking-[1%] ${className}`}
+      className={`text-base leading-[148%] font-medium tracking-[0%] md:tracking-[1%] ${className}`}
     >
       {children}
     </motion.p>

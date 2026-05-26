@@ -1,24 +1,42 @@
-import union from "@/public/ornament-union.png";
-import { clsx } from "clsx";
-import Image from "next/image";
+'use client'
 
-type UnionOrnamentProps = {
-  className?: string;
-};
+import Image from 'next/image'
+import { motion } from 'motion/react'
 
-export default function UnionOrnament({ className = "" }: UnionOrnamentProps) {
+interface OrnamentProps {
+  className?: string
+}
+
+const transition = { type: 'spring', stiffness: 80, damping: 15, delay: 0.1 } as const
+
+export default function Ornament({ className }: OrnamentProps) {
   return (
-    <div
-      className={clsx(
-        "flex justify-center md:relative md:mx-0 md:block md:h-63 md:w-16.5 md:shrink-0",
-        className,
-      )}
-    >
-      <Image
-        src={union}
-        alt="Union"
-        className="md:absolute md:top-1/2 md:left-1/2 md:w-63 md:max-w-none md:-translate-x-1/2 md:-translate-y-1/2 md:rotate-90"
-      />
-    </div>
-  );
+    <>
+      <motion.div
+        initial={{ y: -40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={transition}
+        className={`col-span-5 hidden items-center justify-center md:flex md:h-65 ${className ?? ''}`}
+      >
+        <div className="relative h-65 w-16.5">
+          <Image src="ornament.svg" alt="ornament" fill sizes="auto" />
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ x: 40, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={transition}
+        className={`col-span-5 flex items-center justify-center md:hidden ${className ?? ''}`}
+      >
+        <div className="relative h-16.5 w-65">
+          <div className="absolute top-1/2 left-1/2 h-65 w-16.5 -translate-x-1/2 -translate-y-1/2 rotate-90">
+            <Image src="ornament.svg" alt="ornament" fill sizes="auto" />
+          </div>
+        </div>
+      </motion.div>
+    </>
+  )
 }

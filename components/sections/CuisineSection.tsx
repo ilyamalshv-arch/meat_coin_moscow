@@ -57,7 +57,7 @@ const whiteSectionTabs = [
 
 export default function CuisineSection() {
   return (
-    <section className="-mx-4 rounded-t-[60px] bg-(--color-beige) px-4 pt-12 pb-14 text-(--color-dark-black) md:-mx-20 md:px-20 md:pt-30">
+    <section className="-mx-4 rounded-t-[60px] bg-(--color-beige) px-4 py-12 text-(--color-dark-black) md:-mx-20 md:px-20 md:pt-30 md:pb-30">
       <CuisineMobileSection />
       <CuisineDesktopSection />
     </section>
