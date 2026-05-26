@@ -21,42 +21,49 @@ export default function ChefSection() {
   return (
     <>
       <ChefDesktopSection />
-      <section className="mb-12 md:hidden">
-        <H2Title className="mb-6">
-          <span>мясной ресторан</span>
-          {", "}
-          <span className="text-accent">
-            где каждый стейк становится искусством
-          </span>
-        </H2Title>
-
-        <H3Title className="mb-2">
-          Сегодня он является главным архитекторм вкуса Meat_Coin в Москве
-        </H3Title>
-        <Paragraph className="mb-2">
-          Каждое его движение у открытого огня как часть ритуала, за которым
-          можно наблюдать бесконечно
-        </Paragraph>
-        <Paragraph className="mb-2">
-          Сегодня он является главным архитекторм вкуса Meat_Coin в Москве.
-          Каждое его движение у открытого огня как часть ритуала, за которым
-          можно наблюдать бесконечно{" "}
-        </Paragraph>
-        <Paragraph className="mb-6">
-          Мы работаем с лучшими фермерскими хозяйствами. В наших камерах сухого
-          вызревания мясо проводит недели для получения неповторимого вкуса{" "}
-        </Paragraph>
-
-        <Image
-          src={chef}
-          alt="Шеф-повар ресторана Meat_Coin Steak & Terrace"
-          className="mb-6"
-        />
-        <PhotoSlider slides={chefSlides} />
-      </section>
+      <ChefMobileSection />
     </>
   );
 }
+
+function ChefMobileSection() {
+  return (
+    <section className="mb-12 md:hidden">
+      <H2Title className="mb-6">
+        <span>мясной ресторан</span>
+        {", "}
+        <span className="text-accent">
+          где каждый стейк становится искусством
+        </span>
+      </H2Title>
+
+      <H3Title className="mb-2">
+        Сегодня он является главным архитекторм вкуса Meat_Coin в Москве
+      </H3Title>
+      <Paragraph className="mb-2">
+        Каждое его движение у открытого огня как часть ритуала, за которым можно
+        наблюдать бесконечно
+      </Paragraph>
+      <Paragraph className="mb-2">
+        Сегодня он является главным архитекторм вкуса Meat_Coin в Москве. Каждое
+        его движение у открытого огня как часть ритуала, за которым можно
+        наблюдать бесконечно{" "}
+      </Paragraph>
+      <Paragraph className="mb-6">
+        Мы работаем с лучшими фермерскими хозяйствами. В наших камерах сухого
+        вызревания мясо проводит недели для получения неповторимого вкуса{" "}
+      </Paragraph>
+
+      <Image
+        src={chef}
+        alt="Шеф-повар ресторана Meat_Coin Steak & Terrace"
+        className="mb-6"
+      />
+      <PhotoSlider slides={chefSlides} />
+    </section>
+  );
+}
+
 export function ChefDesktopSection() {
   return (
     <section className="mb-30 hidden md:block">
