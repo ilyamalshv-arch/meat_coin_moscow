@@ -19,6 +19,7 @@ type PhotoSliderProps = {
   slides: PhotoSlide[];
   className?: string;
   imgClassName?: string;
+  imgWrapperClassName?: string;
   slideClassName?: string;
   indicatorsClassName?: string;
   indicatorTone?: "light" | "grey";
@@ -28,6 +29,7 @@ const PhotoSlider = ({
   slides,
   className,
   imgClassName,
+  imgWrapperClassName,
   slideClassName,
   indicatorsClassName,
   indicatorTone = "light",
@@ -101,11 +103,18 @@ const PhotoSlider = ({
               slideClassName,
             )}
           >
-            <Image
-              src={slide.src}
-              alt={slide.alt}
-              className={clsx("w-full rounded-sm object-cover", imgClassName)}
-            />
+            <div
+              className={clsx(
+                "overflow-hidden rounded-sm",
+                imgWrapperClassName,
+              )}
+            >
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                className={clsx("w-full object-cover", imgClassName)}
+              />
+            </div>
             {slide.title ? (
               <H3Title className="mt-2 text-(--color-grey-black) md:text-xl md:leading-[118%] md:font-bold">
                 {slide.title}
@@ -115,14 +124,14 @@ const PhotoSlider = ({
               <Paragraph
                 className={clsx(
                   slide.title ? "mt-2" : "mt-4",
-                  "tracking-[0%] text-dark-black/78",
+                  "text-dark-black/78 tracking-[0%]",
                 )}
               >
                 {slide.description}
               </Paragraph>
             ) : null}
             {slide.description2 ? (
-              <Paragraph className="mt-2 tracking-[0%] text-dark-black/78">
+              <Paragraph className="text-dark-black/78 mt-2 tracking-[0%]">
                 {slide.description2}
               </Paragraph>
             ) : null}
@@ -145,15 +154,14 @@ const PhotoSlider = ({
             className={clsx(
               "h-3 rounded-full transition-all",
               indicatorTone === "light" && "border border-white/30",
-              indicatorTone === "grey" &&
-                "border border-[#BBB6AF]",
+              indicatorTone === "grey" && "border border-[#BBB6AF]",
               activeIndex === index
                 ? indicatorTone === "light"
                   ? "w-6 bg-white/60"
                   : "w-6 bg-[#BBB6AF]"
                 : indicatorTone === "light"
                   ? "w-3 bg-transparent hover:bg-white/20"
-                  : "w-3 bg-transparent hover:bg-dark-black/15",
+                  : "hover:bg-dark-black/15 w-3 bg-transparent",
             )}
           />
         ))}

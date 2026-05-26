@@ -1,6 +1,5 @@
 import H2Title from "@/components/ui/H2Title";
 import Paragraph from "@/components/ui/Paragraph";
-import PhotoSliderTabs from "@/components/ui/PhotoSliderTabs";
 import cuisineAuthorKitchen1 from "@/public/cuisine-author-kitchen-1.png";
 import cuisineAuthorKitchen2 from "@/public/cuisine-author-kitchen-2.png";
 import cuisineAuthorKitchen3 from "@/public/cuisine-author-kitchen-3.png";
@@ -9,10 +8,14 @@ import cuisineKitchenFire from "@/public/cuisine-kitchen-fire.png";
 import cuisineKitchenPlating from "@/public/cuisine-kitchen-plating.png";
 import cuisineKitchenService from "@/public/cuisine-kitchen-service.png";
 import cuisineWinePairing from "@/public/cuisine-wine-pairing.png";
+import clsx from "clsx";
 import Image from "next/image";
-import type { ReactNode } from "react";
+import { Fragment } from "react";
+import AnimatedDiv from "../ui/AnimatedDiv";
 import Button from "../ui/Button";
+import GridSection from "../ui/GridSection";
 import H3Title from "../ui/H3Title";
+import PhotoSliderTabs from "../ui/PhotoSliderTabs";
 
 const kitchenSlides = [
   {
@@ -55,125 +58,97 @@ const whiteSectionTabs = [
   { label: "Бар", slides: barSlides },
 ];
 
+const desktopCuisineItems = [
+  {
+    id: "grill",
+    textClassName: "col-span-5 md:col-span-4",
+    title: (
+      <>
+        Основу гриль-меню <br />
+        составляют блюда с&nbsp;огня
+      </>
+    ),
+    paragraphs: [
+      "Мастера точно знают, как добиться идеальной прожарки, сохранив внутри сок",
+      "Помимо стейков представлены позиции, созданные под руководством шефа",
+    ],
+    image: cuisineAuthorKitchen1,
+    imageClassName: "col-span-5 md:col-span-8",
+  },
+  {
+    id: "pairs",
+    textClassName: "md:col-span-4 md:self-end ",
+    paragraphs: ["Отдельный раздел в меню посвящен гастрономическим парам"],
+    image: cuisineAuthorKitchen2,
+    imageClassName: "col-span-5 md:col-span-8",
+  },
+  {
+    id: "service",
+    textClassName: "md:col-span-4 ",
+    image: cuisineAuthorKitchen3,
+    imageClassName: "col-span-5 md:col-span-8",
+  },
+  {
+    id: "wine",
+    textClassName: "col-span-4 ",
+    title: "Винной карте более 300 позиций",
+    paragraphs: [
+      "Сомелье тщательно отбирает этикетки Старого и Нового Света, чтобы каждая бутылка гармонировала с насыщенным вкусом мяса",
+    ],
+    image: cuisineWinePairing,
+    imageClassName: "col-span-5 md:col-span-8 ",
+  },
+];
+
 export default function CuisineSection() {
   return (
-    <section className="-mx-4 rounded-t-[60px] bg-(--color-beige) px-4 py-12 text-(--color-dark-black) md:-mx-20 md:px-20 md:pt-30 md:pb-30">
-      <CuisineMobileSection />
-      <CuisineDesktopSection />
-    </section>
-  );
-}
+    <GridSection className="bg-beige text-dark-black rounded-t-[60px] px-4 py-12 md:py-30">
+      <AnimatedDiv className="order-last col-span-5 flex flex-col gap-2 md:order-0 md:col-span-4 md:mb-11 md:flex-row">
+        <Button text="Меню" variant="secondary" className="w-full md:w-fit" />
+        <Button
+          text="Винная карта"
+          variant="secondary"
+          className="w-full md:w-fit"
+        />
+      </AnimatedDiv>
 
-function CuisineMobileSection() {
-  return (
-    <div className="md:hidden">
-      <Paragraph className="text-gray mb-2">География вкуса</Paragraph>
-
-      <H2Title className="mb-9 text-(--color-dark-black)">
-        Авторская кухня и турецкие традиции мясников
+      <Paragraph className="text-gray col-span-5 md:hidden">
+        География вкуса
+      </Paragraph>
+      <H2Title className="col-span-5 hidden text-(--color-dark-black) md:col-span-8 md:block">
+        Авторская кухня ресторана
+      </H2Title>
+      <H2Title className="md:9 col-span-5 mb-9 text-(--color-dark-black)">
+        Авторская кухня и турецкие <br />
+        традиции мясников
       </H2Title>
 
-      <PhotoSliderTabs items={whiteSectionTabs} imgClassName="h-[418px]" />
+      <div className="hidden md:contents">
+        {desktopCuisineItems.map((item) => (
+          <Fragment key={item.id}>
+            <div className={clsx(`flex flex-col gap-2`, item.textClassName)}>
+              {item.title ? (
+                <H3Title className="mb-2">{item.title}</H3Title>
+              ) : null}
+              {item.paragraphs?.map((paragraph) => (
+                <Paragraph key={paragraph}>{paragraph}</Paragraph>
+              ))}
+            </div>
 
-      <div className="mt-9 flex flex-col items-center gap-2">
-        <Button text="Меню" variant="secondary" className="w-full" />
-        <Button text="Винная карта" variant="secondary" className="w-full" />
-      </div>
-    </div>
-  );
-}
-
-function CuisineDesktopSection() {
-  return (
-    <div className="hidden md:block">
-      <div className="mb-18 flex gap-7">
-        <div className="flex w-102 gap-2">
-          <Button text="Меню" variant="secondary" />
-          <Button text="Винная карта" variant="secondary" />
-        </div>
-        <H2Title className="text-(--color-dark-black)">
-          Авторская кухня ресторана
-        </H2Title>
+            <Image
+              src={item.image}
+              alt="Кухня Meat_Coin"
+              className={item.imageClassName}
+            />
+          </Fragment>
+        ))}
       </div>
 
-      <div className="flex flex-col items-center gap-7">
-        <div className="flex gap-7">
-          <CuisineDesktopTextBlock
-            title={
-              <>
-                Основу гриль-меню <br />
-                составляют блюда с огня
-              </>
-            }
-            paragraphs={[
-              "Мастера точно знают, как добиться идеальной прожарки, сохранив внутри сок",
-              "Помимо стейков представлены позиции, созданные под руководством шефа",
-            ]}
-          />
-
-          <Image
-            src={cuisineAuthorKitchen1}
-            alt="Кухня Meat_Coin"
-            className="h-119 w-211"
-          />
-        </div>
-
-        <div className="flex items-end gap-7">
-          <CuisineDesktopTextBlock
-            paragraphs={[
-              "Отдельный раздел в меню посвящен гастрономическим парам",
-            ]}
-          />
-
-          <Image
-            src={cuisineAuthorKitchen2}
-            alt="Кухня Meat_Coin"
-            className="h-119 w-211"
-          />
-        </div>
-
-        <div className="flex w-full justify-end gap-7">
-          <CuisineDesktopTextBlock />
-
-          <Image
-            src={cuisineAuthorKitchen3}
-            alt="Кухня Meat_Coin"
-            className="h-119 w-211"
-          />
-        </div>
-
-        <div className="flex gap-7">
-          <CuisineDesktopTextBlock
-            title="Винной карте более 300 позиций"
-            paragraphs={[
-              "Сомелье тщательно отбирает этикетки Старого и Нового Света, чтобы каждая бутылка гармонировала с насыщенным вкусом мяса",
-            ]}
-          />
-
-          <Image
-            src={cuisineWinePairing}
-            alt="Кухня Meat_Coin"
-            className="h-119 w-211"
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CuisineDesktopTextBlock({
-  title,
-  paragraphs,
-}: {
-  title?: ReactNode;
-  paragraphs?: string[];
-}) {
-  return (
-    <div className="flex flex-col gap-2">
-      {title ? <H3Title className="mb-2">{title}</H3Title> : null}
-      {paragraphs?.map((paragraph) => (
-        <Paragraph key={paragraph}>{paragraph}</Paragraph>
-      ))}
-    </div>
+      <PhotoSliderTabs
+        items={whiteSectionTabs}
+        className="col-span-5 md:hidden mb-9"
+        imgWrapperClassName="h-104.5"
+      />
+    </GridSection>
   );
 }
