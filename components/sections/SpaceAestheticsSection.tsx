@@ -8,6 +8,7 @@ import spaceAestheticsTerracePanorama from "@/public/space-aesthetics-terrace-pa
 import spaceAestheticsTerraceTable from "@/public/space-aesthetics-terrace-table.png";
 import spaceAestheticsTerraceWide from "@/public/space-aesthetics-terrace-wide.png";
 import spaceAestheticsWindowTables from "@/public/space-aesthetics-window-tables.png";
+import GridSection from "../ui/GridSection";
 
 const spaceSlides = [
   {
@@ -49,9 +50,12 @@ const spaceSlides = [
 
 export default function SpaceAestheticsSection() {
   return (
-    <section className="-mx-4 mb-12 px-4 pt-11">
-      <div className="mb-9 md:ml-109 md:w-129.25">
-        <H2Title className="mb-2 md:mb-7">Эстетика пространства</H2Title>
+    <GridSection className="-mx-4 mb-12 px-4 pt-11 md:mb-0">
+      <H2Title className="col-span-5 mb-2 md:mb-7 md:col-start-5 md:col-span-8">
+        Эстетика пространства
+      </H2Title>
+
+      <div className="col-span-5 mb-9 md:max-w-129.25 md:col-start-5 md:col-span-8">
         <Paragraph className="mb-2">
           Дизайн от бюро DA Bureau сочетает природные материалы, приглушенный
           свет и открытую кухню
@@ -64,11 +68,14 @@ export default function SpaceAestheticsSection() {
 
       <PhotoSlider
         slides={spaceSlides}
-        slideClassName="flex flex-col justify-end w-full!"
+        useIntrinsicImageSize
+        scrollerClassName="md:items-end"
+        slideClassName="flex flex-col justify-end md:max-w-none"
         indicatorsClassName="justify-start"
-        imgClassName="md:h-full md:w-full"
-        className="md:-mt-66"
+        imgWrapperClassName="h-105 md:h-auto"
+        imgClassName="h-full md:h-(--slide-height)"
+        className="md:-mt-66 col-span-5 h-full md:col-span-12"
       />
-    </section>
+    </GridSection>
   );
 }

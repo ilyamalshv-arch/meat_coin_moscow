@@ -4,7 +4,7 @@ import H3Title from "@/components/ui/H3Title";
 import Paragraph from "@/components/ui/Paragraph";
 import clsx from "clsx";
 import Image, { StaticImageData } from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 
 export type PhotoSlide = {
   id?: string;
@@ -21,8 +21,10 @@ type PhotoSliderProps = {
   imgClassName?: string;
   imgWrapperClassName?: string;
   slideClassName?: string;
+  scrollerClassName?: string;
   indicatorsClassName?: string;
   indicatorTone?: "light" | "grey";
+  useIntrinsicImageSize?: boolean;
 };
 
 const PhotoSlider = ({
@@ -31,8 +33,10 @@ const PhotoSlider = ({
   imgClassName,
   imgWrapperClassName,
   slideClassName,
+  scrollerClassName,
   indicatorsClassName,
   indicatorTone = "light",
+  useIntrinsicImageSize = false,
 }: PhotoSliderProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const slideRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -46,8 +50,6 @@ const PhotoSlider = ({
     }
 
     const updateActiveSlide = () => {
-      const containerCenter = container.scrollLeft + container.clientWidth / 2;
-
       let closestIndex = 0;
       let closestDistance = Number.POSITIVE_INFINITY;
 
@@ -56,8 +58,13 @@ const PhotoSlider = ({
           return;
         }
 
-        const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
-        const distance = Math.abs(slideCenter - containerCenter);
+        const targetPosition = useIntrinsicImageSize
+          ? container.scrollLeft
+          : container.scrollLeft + container.clientWidth / 2;
+        const slidePosition = useIntrinsicImageSize
+          ? slide.offsetLeft
+          : slide.offsetLeft + slide.clientWidth / 2;
+        const distance = Math.abs(slidePosition - targetPosition);
 
         if (distance < closestDistance) {
           closestDistance = distance;
@@ -76,7 +83,7 @@ const PhotoSlider = ({
       container.removeEventListener("scroll", updateActiveSlide);
       window.removeEventListener("resize", updateActiveSlide);
     };
-  }, [slides.length]);
+  }, [slides.length, useIntrinsicImageSize]);
 
   const scrollToSlide = (index: number) => {
     slideRefs.current[index]?.scrollIntoView({
@@ -90,11 +97,22 @@ const PhotoSlider = ({
     <div className={className}>
       <div
         ref={containerRef}
-        className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-2 overflow-x-auto px-4 md:mx-0 md:-mr-20 md:gap-7 md:px-0"
+        className={clsx(
+          "no-scrollbar -mx-4 flex snap-x snap-mandatory gap-2 overflow-x-auto px-4 md:mx-0 md:-mr-20 md:gap-7 md:px-0",
+          scrollerClassName,
+        )}
       >
         {slides.map((slide, index) => (
           <div
             key={slide.id ?? `${slide.alt}-${index}`}
+            style={
+              useIntrinsicImageSize
+                ? ({
+                    "--slide-width": `${slide.src.width}px`,
+                    "--slide-height": `${slide.src.height}px`,
+                  } as CSSProperties)
+                : undefined
+            }
             ref={(element) => {
               slideRefs.current[index] = element;
             }}
@@ -112,7 +130,12 @@ const PhotoSlider = ({
               <Image
                 src={slide.src}
                 alt={slide.alt}
-                className={clsx("w-full object-cover", imgClassName)}
+                className={clsx(
+                  "w-full object-cover",
+                  useIntrinsicImageSize &&
+                    "md:h-(--slide-height) md:w-(--slide-width)",
+                  imgClassName,
+                )}
               />
             </div>
             {slide.title ? (
