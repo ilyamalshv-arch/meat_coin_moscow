@@ -108,9 +108,10 @@ function SpecialOfferCard({ offer }: { offer: SpecialOffer }) {
 export default function SpecialOffersSection() {
   return (
     <GridSection className="mt-12 mb-12 md:mt-30 md:mb-0 md:px-20">
-      <Paragraph className="col-span-5 mb-2 text-(--color-gray) md:col-span-3">
+      <Paragraph className="col-span-5 mb-2 text-(--color-gray) md:col-span-4">
         Особые моменты
       </Paragraph>
+
       <div className="contents md:col-span-8 md:col-start-5 md:flex md:w-117.5 md:flex-col md:gap-2">
         <H2Title className="col-span-5 mb-4 md:mb-2">Спецпредложения</H2Title>
 
@@ -120,7 +121,8 @@ export default function SpecialOffersSection() {
         </Paragraph>
 
         <Paragraph className="col-span-5 mb-9 md:mb-18">
-          Также мы проводим закрытые гастроужины, где шеф представляет новые
+          Также мы проводим закрытые гастроужины,
+          <br className="hidden md:block" /> где шеф представляет новые
           авторские позиции
         </Paragraph>
       </div>
