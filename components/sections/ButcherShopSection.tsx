@@ -9,6 +9,7 @@ import butcherShopSpices from "@/public/butcher-shop-spices.png";
 import butcherShopSteak from "@/public/butcher-shop-steak.png";
 import butcherShopWagyu from "@/public/butcher-shop-wagyu.png";
 import Image from "next/image";
+import GridSection from "../ui/GridSection";
 import H3Title from "../ui/H3Title";
 
 const cutTags = ["Рибай на кости", "Нью-Йорк", "Филе-миньон", "Вагю"];
@@ -48,61 +49,59 @@ const butcherPhotos = [
 
 export default function ButcherShopSection() {
   return (
-    <section className="-mx-4 mb-12 px-4 py-6 md:-mx-20 md:mb-30 md:px-20 md:pt-30 md:pb-0">
-      <div className="md:relative md:min-h-111">
-        <H2Title className="mb-4 md:mb-18 md:ml-109 md:max-w-178">
-          <span className="text-(--color-accent)">Мясная лавка</span> Выберите
-          свой идеальный стейк
-        </H2Title>
+    <GridSection className="-mx-4 px-4 py-12 md:py-30">
+      <H2Title className="order-1 col-span-5 mb-4 md:order-2 md:col-span-8 md:col-start-5 md:mb-18">
+        <span className="text-(--color-accent)">Мясная лавка</span> Выберите
+        свой идеальный стейк
+      </H2Title>
 
-        <Tag className="mb-9 px-3! py-3! md:absolute md:top-0 md:left-0 md:mb-0 md:px-4! md:py-3.5!">
-          <span className="mr-1">Ежедневно</span>
-          <span className="text-xl leading-[116%] font-extrabold">
-            12:00-23:00
-          </span>
-        </Tag>
+      <Tag className="order-2 col-span-5 mb-7 self-start p-3! md:order-1 md:col-span-4 md:mb-0 md:p-4!">
+        <span className="mr-1">Ежедневно</span>
+        <span className="text-xl leading-[116%] font-extrabold md:text-2xl">
+          12:00–23:00
+        </span>
+      </Tag>
 
-        <div className="md:ml-109 md:w-120">
-          <H3Title className="mb-2 w-75 md:w-full">
-            Мраморная говядина Прайм и Вагю
-          </H3Title>
-          <Paragraph className="mb-7 text-sm text-(--color-gray)">
-            Для ценителей и гурманов
-          </Paragraph>
+      <div className="order-3 col-span-5 md:col-span-5 md:col-start-5 md:w-120">
+        <H3Title className="mb-2 w-75 md:w-full">
+          Мраморная говядина Прайм и Вагю
+        </H3Title>
+        <Paragraph className="mb-7 text-sm text-(--color-gray)">
+          Для ценителей и гурманов
+        </Paragraph>
 
-          <Paragraph className="mb-2">
-            В мясной лавке представлены отрубы
-          </Paragraph>
+        <Paragraph className="md:mb-2 mb-4">
+          В мясной лавке представлены отрубы
+        </Paragraph>
 
-          <div className="mb-2 flex flex-wrap gap-2">
-            {cutTags.map((tag) => (
-              <Tag key={tag} text={tag} className="px-3! py-3!" />
-            ))}
-          </div>
-
-          <Paragraph className="mb-11 w-77 md:w-full">
-            Наши мастера помогут выбрать мясо и нужную степень прожарки, чтобы
-            ваш домашний опыт достиг ресторанного уровня
-          </Paragraph>
-
-          <Button
-            text="Заказать с доставкой"
-            variant="secondary"
-            className="mb-9 w-full border-(--color-accent)! text-white hover:border-(--color-accent)! md:mb-18"
-          />
+        <div className="mb-4 flex flex-wrap gap-2 md:mb-2">
+          {cutTags.map((tag) => (
+            <Tag key={tag} text={tag} className="px-3! py-3!" />
+          ))}
         </div>
+
+        <Paragraph className="mb-9 w-77 md:mb-11 md:w-full">
+          Наши мастера помогут выбрать мясо и нужную степень прожарки, чтобы ваш
+          домашний опыт достиг ресторанного уровня
+        </Paragraph>
+
+        <Button
+          text="Заказать с доставкой"
+          variant="secondary"
+          className="mb-9 w-full border-(--color-accent)! text-white hover:border-(--color-accent)! md:mb-18"
+        />
       </div>
 
-      <div className="no-scrollbar -mr-4 flex snap-x snap-mandatory gap-2 overflow-x-auto px-4 md:-mx-20 md:gap-7 md:px-0">
+      <div className="no-scrollbar order-4 col-span-5 -mr-4 flex snap-x snap-mandatory gap-2 overflow-x-auto md:col-span-12 md:-mx-20 md:mt-1 md:gap-7">
         {butcherPhotos.map((photo) => (
           <Image
             key={photo.id}
             src={photo.src}
             alt={photo.alt}
-            className="h-72 w-72 rounded-sm object-cover md:h-75 md:w-75"
+            className="h-72 w-72 rounded-sm object-cover md:h-85 md:w-85"
           />
         ))}
       </div>
-    </section>
+    </GridSection>
   );
 }
