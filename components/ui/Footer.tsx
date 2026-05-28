@@ -1,22 +1,22 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { useState } from 'react'
-import { RESTAURANTS } from '../../consts/restaurants'
-import { COPYRIGHT_TEXT } from '../../consts/site'
-import MailIcon from '../icons/MailIcon'
-import Button from './Button'
-import Dropdown from './Dropdown'
-import Paragraph from './Paragraph'
-import Telegram from './Telegram'
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { RESTAURANTS } from "../../consts/restaurants";
+import { COPYRIGHT_TEXT } from "../../consts/site";
+import MailIcon from "../icons/MailIcon";
+import Button from "./Button";
+import Dropdown from "./Dropdown";
+import Paragraph from "./Paragraph";
+import Telegram from "./Telegram";
 
 const Footer = () => {
-  const [isRestaurantsOpen, setIsRestaurantsOpen] = useState(false)
+  const [isRestaurantsOpen, setIsRestaurantsOpen] = useState(false);
 
   return (
-    <footer className="mx-auto max-w-360 overflow-hidden px-4 pb-12 pt-7 md:px-20 md:pb-11 md:pt-0">
-      <div className="hidden grid-cols-12 gap-7 md:grid">
+    <footer className="mx-auto max-w-360 overflow-hidden px-4 pt-7 pb-12 md:px-20 md:pt-0 md:pb-11">
+      <div className="grid-cols-12 gap-7 md:grid">
         <div className="col-span-4 flex h-full flex-col justify-between gap-4">
           <div className="gap7 flex flex-col gap-7">
             <h3 className="text-accent pb-2 text-2xl leading-[116%] font-extrabold tracking-normal underline">
@@ -58,8 +58,8 @@ const Footer = () => {
                 Адрес
               </p>
               <p className="text-base leading-[148%] font-medium tracking-[1%]">
-                Смоленская площадь • 5 &quot;БЦ Смоленский пассаж <br /> 2&quot; • 4 этаж •
-                (отдельный вход со стороны Николощеповского переулка)
+                Смоленская площадь • 5 &quot;БЦ Смоленский пассаж <br /> 2&quot;
+                • 4 этаж • (отдельный вход со стороны Николощеповского переулка)
               </p>
             </div>
           </div>
@@ -113,46 +113,44 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-devider mt-7 mb-11 hidden h-[1.5px] w-full md:flex" />
+      <div className="bg-devider h-0.375 mt-7 mb-11 hidden w-full md:flex" />
 
-      <div className="flex flex-col gap-6 md:py-11 md:grid md:grid-cols-12 md:gap-7">
+      <div className="flex flex-col gap-6 md:grid md:grid-cols-12 md:gap-7 md:py-11">
         {(
           [
             {
-              title: 'Навигация',
-              header: { label: 'Рестораны', dropdown: true },
+              title: "Навигация",
+              header: { label: "Рестораны", dropdown: true },
               links: [
-                { label: 'Меню', href: '/' },
-                { label: 'Шефы', href: '/' },
-                { label: 'События', href: '/' },
-                { label: 'Программа лояльности', href: '/' },
+                { label: "Меню", href: "/" },
+                { label: "Шефы", href: "/" },
+                { label: "События", href: "/" },
+                { label: "Программа лояльности", href: "/" },
               ],
             },
             {
-              title: 'О бренде',
+              title: "О бренде",
               links: [
-                { label: 'О нас', href: '/' },
-                { label: 'Пресса о нас', href: '/' },
-                { label: 'Инвесторам', href: '/' },
-                { label: 'Вакансии', href: '/' },
+                { label: "О нас", href: "/" },
+                { label: "Пресса о нас", href: "/" },
+                { label: "Инвесторам", href: "/" },
+                { label: "Вакансии", href: "/" },
               ],
             },
             {
-              title: 'Сервис',
+              title: "Сервис",
               links: [
-                { label: 'Доставка', href: '/' },
-                { label: 'Подарочные карты', href: '/' },
-                { label: 'Контакты', href: '/' },
-                { label: 'Отзывы', href: '/' },
+                { label: "Доставка", href: "/" },
+                { label: "Подарочные карты", href: "/" },
+                { label: "Контакты", href: "/" },
+                { label: "Отзывы", href: "/" },
               ],
             },
           ] as const
         ).map((col) => (
           <div key={col.title} className="flex flex-col gap-4 md:col-span-4">
-            <Paragraph className="text-(--color-gray)">
-              {col.title}
-            </Paragraph>
-            {'header' in col && (
+            <Paragraph className="text-(--color-gray)">{col.title}</Paragraph>
+            {"header" in col && (
               <Dropdown
                 isOpen={isRestaurantsOpen}
                 onToggle={() => setIsRestaurantsOpen((current) => !current)}
@@ -161,7 +159,11 @@ const Footer = () => {
                 trigger={<Paragraph>{col.header.label}</Paragraph>}
               >
                 {RESTAURANTS.map((item) => (
-                  <Link key={item.city} href="/" className="group flex flex-col">
+                  <Link
+                    key={item.city}
+                    href="/"
+                    className="group flex flex-col"
+                  >
                     <span className="group-hover:text-accent text-base leading-[148%] font-medium tracking-[1%]">
                       {item.city}
                     </span>
@@ -188,16 +190,20 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col justify-between gap-4 pb-6 md:flex-row md:items-center md:gap-0 md:pb-0">
-        <Link href={'/'} className="py-3 md:py-0">
-          <Image src={'/logo_accent.svg'} alt="" width={190} height={34} />
+        <Link href={"/"} className="py-3 md:py-0">
+          <Image src={"/logo_accent.svg"} alt="" width={190} height={34} />
         </Link>
         <div className="flex gap-7">
-          <Image src={'/yandex_mesto.svg'} alt="" width={71} height={40} />
-          <Button text="Оставить отзыв" variant="secondary" className="w-full! text-white!" />
+          <Image src={"/yandex_mesto.svg"} alt="" width={71} height={40} />
+          <Button
+            text="Оставить отзыв"
+            variant="secondary"
+            className="w-full! text-white!"
+          />
         </div>
       </div>
 
-      <div className="bg-devider mt-7 mb-11 hidden h-[1.5px] w-full md:flex" />
+      <div className="bg-devider h-0.375 mt-7 mb-11 hidden w-full md:flex" />
 
       <div className="flex flex-col justify-between gap-4 md:flex-row md:gap-0">
         <p className="text-base leading-[148%] font-medium tracking-[1%] text-(--color-gray) md:text-sm">
@@ -206,10 +212,10 @@ const Footer = () => {
 
         <div className="flex flex-col gap-4 md:flex-row md:gap-6">
           {[
-            { title: 'Правила посещения ресторана', href: '/rules' },
-            { title: 'Политика конфиденциальности', href: '/policy' },
-            { title: 'Согласие на получение рассылки', href: '/agreement' },
-            { title: 'Настройки cookies', href: '/cookies' },
+            { title: "Правила посещения ресторана", href: "/rules" },
+            { title: "Политика конфиденциальности", href: "/policy" },
+            { title: "Согласие на получение рассылки", href: "/agreement" },
+            { title: "Настройки cookies", href: "/cookies" },
           ].map((item) => (
             <Link
               key={item.href}
@@ -223,7 +229,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

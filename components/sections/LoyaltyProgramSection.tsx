@@ -27,7 +27,7 @@ export default function LoyaltyProgramSection() {
         Программа лояльности
       </H2Title>
 
-      <Paragraph className="text-accent -mb-2 col-span-5 md:col-span-8 md:col-start-5 md:-mb-3">
+      <Paragraph className="text-accent col-span-5 -mb-2 md:col-span-8 md:col-start-5 md:-mb-3">
         Участники программы получают
       </Paragraph>
 
@@ -48,7 +48,7 @@ export default function LoyaltyProgramSection() {
         ))}
       </div>
 
-      <div className="border-devider col-span-5 border-b px-0 pt-7 md:col-span-8 md:col-start-5 md:flex md:items-start md:justify-between md:border-b-0 md:pt-0">
+      <div className="col-span-5 px-0 pt-7 md:col-span-8 md:col-start-5 md:flex md:items-start md:justify-between md:pt-0">
         <Button
           text="Оформить"
           variant="secondary"
