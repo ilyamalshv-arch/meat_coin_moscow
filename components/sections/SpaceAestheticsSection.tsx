@@ -50,7 +50,7 @@ const spaceSlides = [
 
 export default function SpaceAestheticsSection() {
   return (
-    <GridSection className="-mx-4 px-4 pt-11">
+    <GridSection className="-mx-4 px-4 pt-11 md:pt-30">
       <H2Title className="col-span-5 mb-2 md:mb-7 md:col-start-5 md:col-span-8">
         Эстетика пространства
       </H2Title>

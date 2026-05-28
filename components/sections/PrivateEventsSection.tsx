@@ -38,11 +38,12 @@ const celebrationSlides = [
 
 export default function PrivateEventsSection() {
   return (
-    <GridSection className="mb-12 md:mt-30 md:mb-0">
+    <GridSection className="pb-12 md:pt-30 md:pb-0">
       <Paragraph className="col-span-5 mb-2 text-(--color-gray) md:col-span-4 md:mb-0 md:w-102">
         Проведение приватных мероприятий
       </Paragraph>
-      <H2Title className="col-span-5 mb-9 md:col-span-8 md:mb-23">
+
+      <H2Title className="col-span-5 mb-9 md:col-span-8 md:mb-11">
         Место для вашего праздника
       </H2Title>
 

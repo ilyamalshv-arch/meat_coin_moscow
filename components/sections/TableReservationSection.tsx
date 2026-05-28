@@ -8,7 +8,7 @@ import GridSection from "../ui/GridSection";
 
 export default function TableReservationSection() {
   return (
-    <GridSection className="relative mb-12 md:mt-30 md:mb-30">
+    <GridSection className="relative pt-12 md:pt-30">
       <H2Title className="col-span-5 mb-2 md:col-span-8 md:col-start-5 md:-mb-5">
         Бронирование стола
       </H2Title>

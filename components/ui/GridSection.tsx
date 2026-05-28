@@ -1,22 +1,21 @@
-import { forwardRef, type ReactNode } from 'react'
+import clsx from "clsx";
+import type { ComponentPropsWithoutRef } from "react";
 
-type Props = {
-  className?: string
-  children: ReactNode
-}
+type GridSectionProps = ComponentPropsWithoutRef<"section">;
 
-const GridSection = forwardRef<HTMLElement, Props>(function GridSection(
-  { className, children },
-  ref
-) {
+const gridSectionClassName =
+  "mx-auto grid grid-cols-5 gap-2 px-4 md:max-w-360 md:grid-cols-12 md:gap-7 md:px-20";
+
+const GridSection = ({
+  className,
+  children,
+  ...otherProps
+}: GridSectionProps) => {
   return (
-    <section
-      ref={ref as any}
-      className={`mx-auto grid grid-cols-5 gap-2 px-4 md:max-w-360 md:grid-cols-12 md:gap-7 md:px-20 ${className ? ` ${className}` : ''}`}
-    >
+    <section {...otherProps} className={clsx(gridSectionClassName, className)}>
       {children}
     </section>
-  )
-})
+  );
+};
 
-export default GridSection
+export default GridSection;
