@@ -113,7 +113,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-devider h-0.375 mt-7 mb-11 hidden w-full md:flex" />
+      <div className="bg-devider mt-7 mb-11 hidden h-[1.5px] w-full md:flex" />
 
       <div className="flex flex-col gap-6 md:grid md:grid-cols-12 md:gap-7 md:py-11">
         {(
@@ -203,7 +203,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-devider h-0.375 mt-7 mb-11 hidden w-full md:flex" />
+      <div className="bg-devider mt-7 mb-11 hidden h-[1.5px] w-full md:flex" />
 
       <div className="flex flex-col justify-between gap-4 md:flex-row md:gap-0">
         <p className="text-base leading-[148%] font-medium tracking-[1%] text-(--color-gray) md:text-sm">
