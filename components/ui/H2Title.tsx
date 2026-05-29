@@ -1,34 +1,40 @@
-'use client'
+"use client";
 
-import clsx from 'clsx'
-import { motion } from 'framer-motion'
+import {
+  type AnimationDelay,
+  useResolvedDelay,
+} from "@/components/hooks/useResolvedDelay";
+import clsx from "clsx";
+import { motion } from "framer-motion";
 
 type H2TitleProps = {
-  children: React.ReactNode
-  delay?: number
-  className?: string
-}
+  children: React.ReactNode;
+  delay?: AnimationDelay;
+  className?: string;
+};
 
 const H2Title = ({ children, className, delay = 0 }: H2TitleProps) => {
+  const resolvedDelay = useResolvedDelay(delay);
+
   return (
     <motion.h2
       initial={{ x: 40, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{
-        type: 'spring',
+        type: "spring",
         stiffness: 80,
         damping: 15,
-        delay,
+        delay: resolvedDelay,
       }}
       className={clsx(
-        'font-albertus text-[1.75rem] leading-[120%] font-normal tracking-[-1%] uppercase md:text-[2.5rem]',
+        "font-albertus text-[1.75rem] leading-[120%] font-normal tracking-[-1%] uppercase md:text-[2.5rem]",
         className,
       )}
     >
       {children}
     </motion.h2>
-  )
-}
+  );
+};
 
-export default H2Title
+export default H2Title;

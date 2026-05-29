@@ -1,16 +1,27 @@
-'use client'
+"use client";
 
-import clsx from 'clsx'
-import { motion } from 'framer-motion'
+import {
+  type AnimationDelay,
+  useResolvedDelay,
+} from "@/components/hooks/useResolvedDelay";
+import clsx from "clsx";
+import { motion } from "framer-motion";
 
 type H3TitleProps = {
-  children: React.ReactNode
-  delay?: number
-  className?: string
-  animate?: import('framer-motion').TargetAndTransition
-}
+  children: React.ReactNode;
+  delay?: AnimationDelay;
+  className?: string;
+  animate?: import("framer-motion").TargetAndTransition;
+};
 
-const H3Title = ({ children, delay = 0, className, animate: animateProp }: H3TitleProps) => {
+const H3Title = ({
+  children,
+  delay = 0,
+  className,
+  animate: animateProp,
+}: H3TitleProps) => {
+  const resolvedDelay = useResolvedDelay(delay);
+
   return (
     <motion.h3
       initial={{ x: 40, opacity: 0 }}
@@ -18,19 +29,19 @@ const H3Title = ({ children, delay = 0, className, animate: animateProp }: H3Tit
         ? { animate: animateProp }
         : { whileInView: { x: 0, opacity: 1 }, viewport: { once: true } })}
       transition={{
-        type: 'spring',
+        type: "spring",
         stiffness: 80,
         damping: 15,
-        delay,
+        delay: resolvedDelay,
       }}
       className={clsx(
-        'text-xl leading-[118%] font-bold tracking-normal md:text-2xl md:font-extrabold md:tracking-normal',
+        "text-xl leading-[118%] font-bold tracking-normal md:text-2xl md:font-extrabold md:tracking-normal",
         className,
       )}
     >
       {children}
     </motion.h3>
-  )
-}
+  );
+};
 
-export default H3Title
+export default H3Title;

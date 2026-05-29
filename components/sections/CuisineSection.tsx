@@ -103,7 +103,10 @@ const desktopCuisineItems = [
 export default function CuisineSection() {
   return (
     <GridSection className="bg-beige text-dark-black rounded-t-[60px] px-4 py-12 md:py-30">
-      <AnimatedDiv className="order-last col-span-5 flex flex-col gap-2 md:order-0 md:col-span-4 md:mb-11 md:flex-row">
+      <AnimatedDiv
+        delay={0.2}
+        className="order-last col-span-5 flex flex-col gap-2 md:order-0 md:col-span-4 md:mb-11 md:flex-row"
+      >
         <Button text="Меню" variant="secondary" className="w-full md:w-fit" />
         <Button
           text="Винная карта"
@@ -115,15 +118,20 @@ export default function CuisineSection() {
       <Paragraph className="text-gray col-span-5 md:hidden">
         География вкуса
       </Paragraph>
-      <H2Title className="col-span-5 hidden text-(--color-dark-black) md:col-span-8 md:block">
+
+      <H2Title
+        delay={0.2}
+        className="col-span-5 hidden text-(--color-dark-black) md:col-span-8 md:block"
+      >
         Авторская кухня ресторана
       </H2Title>
-      <H2Title className="md:9 col-span-5 mb-9 text-(--color-dark-black)">
+
+      <H2Title className="md:9 col-span-5 mb-9 text-(--color-dark-black) md:hidden">
         Авторская кухня и турецкие <br />
         традиции мясников
       </H2Title>
 
-      <div className="hidden md:contents">
+      <AnimatedDiv delay={0.2} className="hidden md:contents">
         {desktopCuisineItems.map((item) => (
           <Fragment key={item.id}>
             <div className={clsx(`flex flex-col gap-2`, item.textClassName)}>
@@ -142,11 +150,11 @@ export default function CuisineSection() {
             />
           </Fragment>
         ))}
-      </div>
+      </AnimatedDiv>
 
       <PhotoSliderTabs
         items={whiteSectionTabs}
-        className="col-span-5 md:hidden mb-9"
+        className="col-span-5 mb-9 md:hidden"
         imgWrapperClassName="h-104.5"
       />
     </GridSection>

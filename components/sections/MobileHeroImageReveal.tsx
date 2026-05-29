@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
+import AnimatedDiv from "@/components/ui/AnimatedDiv";
 import GridSection from "@/components/ui/GridSection";
 import H1Title from "@/components/ui/H1Title";
 import Paragraph from "@/components/ui/Paragraph";
@@ -38,10 +39,13 @@ export default function MobileHeroImageReveal() {
     >
       <div className="sticky top-0 col-span-5 h-svh overflow-hidden px-4 pt-6">
         <div className="flex h-full w-full flex-col">
-          <Paragraph className="mb-2 text-[16px] tracking-[1%] text-(--color-gray)">
+          <Paragraph
+            className="mb-2 text-[16px] tracking-[1%] text-(--color-gray)"
+            delay={0.2}
+          >
             Бренд, где выбор отрубов, выдержка и прожарка — традиция поколений
           </Paragraph>
-          <H1Title className="mb-1">
+          <H1Title className="mb-1" delay={0.4}>
             <span className="text-accent">Meat_Coin Steak & Terrace — </span>{" "}
             <span>стейк-хаус с панорамной террасой в Москве</span>
           </H1Title>
@@ -49,11 +53,13 @@ export default function MobileHeroImageReveal() {
             className="mt-auto pb-38"
             style={{ opacity: menuButtonOpacity, y: menuButtonY }}
           >
-            <Button
-              text="Меню"
-              variant="secondary"
-              className="w-full border-[1.5px] border-(--color-accent) py-4 text-center text-[16px] leading-[150%] text-white"
-            />
+            <AnimatedDiv delay={0.6}>
+              <Button
+                text="Меню"
+                variant="secondary"
+                className="w-full border-[1.5px] border-(--color-accent) py-4 text-center text-[16px] leading-[150%] text-white"
+              />
+            </AnimatedDiv>
           </motion.div>
         </div>
 
@@ -72,11 +78,13 @@ export default function MobileHeroImageReveal() {
         </motion.div>
       </div>
 
-      <Button
-        text="Забронировать стол"
-        variant="primary"
-        className="fixed right-4 bottom-4 left-4 z-1000 w-auto!"
-      />
+      <AnimatedDiv className="fixed right-4 bottom-4 left-4 z-1000" delay={0.8}>
+        <Button
+          text="Забронировать стол"
+          variant="primary"
+          className="w-full"
+        />
+      </AnimatedDiv>
     </GridSection>
   );
 }

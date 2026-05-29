@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import type { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithRef } from "react";
 
-type GridSectionProps = ComponentPropsWithoutRef<"section">;
+type GridSectionProps = ComponentPropsWithRef<"section">;
 
 const gridSectionClassName =
   "mx-auto grid grid-cols-5 gap-2 px-4 md:max-w-360 md:grid-cols-12 md:gap-7 md:px-20";

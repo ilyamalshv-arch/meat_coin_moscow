@@ -1,4 +1,5 @@
 import MobileHeroImageReveal from "@/components/sections/MobileHeroImageReveal";
+import AnimatedDiv from "@/components/ui/AnimatedDiv";
 import Button from "@/components/ui/Button";
 import GridSection from "@/components/ui/GridSection";
 import H1Title from "@/components/ui/H1Title";
@@ -20,24 +21,28 @@ function DesktopHeroSection() {
   return (
     <GridSection className="hidden gap-0 pt-18 pb-0 md:grid">
       <div className="col-span-12 flex flex-col">
-        <H1Title className="mb-11">
+        <H1Title className="mb-11" delay={0.2}>
           <span className="text-accent">Meat_Coin Steak & Terrace — </span>{" "}
           стейк-хаус с панорамной террасой в Москве
         </H1Title>
-        <div className="mb-18 flex items-start gap-2">
+        <AnimatedDiv delay={0.4} className="mb-18 flex items-start gap-2">
           <Button
             text="Меню"
             variant="secondary"
-            className="order-2 w-fit! border-[1.5px] border-(--color-accent) py-4 text-center text-[16px] leading-[150%] text-white"
+            className="w-fit! border-[1.5px] border-(--color-accent) py-4 text-center text-[16px] leading-[150%] text-white"
           />
           <Button
             text="Забронировать стол"
             variant="primary"
-            className="order-1 w-fit! border-[1.5px] border-(--color-accent) py-4 text-center text-[16px] leading-[150%] text-white"
+            className="w-fit! border-[1.5px] border-(--color-accent) py-4 text-center text-[16px] leading-[150%] text-white"
           />
-        </div>
+        </AnimatedDiv>
       </div>
-      <div className="relative col-span-12 flex w-full flex-col items-center gap-0">
+
+      <AnimatedDiv
+        delay={0.6}
+        className="relative col-span-12 flex w-full flex-col items-center gap-0"
+      >
         <Image
           src={terraceEntranceImage}
           alt="Терраса и интерьер ресторана Meat_Coin Steak & Terrace"
@@ -53,7 +58,7 @@ function DesktopHeroSection() {
           alt="Лаунж зона ресторана Meat_Coin Steak & Terrace"
           className="absolute top-19.5 left-0 h-119 max-w-102 rounded-sm"
         />
-      </div>
+      </AnimatedDiv>
     </GridSection>
   );
 }
