@@ -16,9 +16,27 @@ export interface ContactRestaurant {
   mapSrc: string;
 }
 
-// Порядок и данные сверены 1:1 с продом meat-coin.vercel.app/contacts:
-// Steak & Terrace (Москва) идёт первым и раскрыт по умолчанию.
+// Порядок — ПО ДИЗАЙНУ FIGMA: Country Club (Комарово) первый и раскрыт по умолчанию.
+// Внимание: на живом проде порядок иной (Steak & Terrace первый) — здесь намеренно
+// следуем макету по решению заказчика.
 export const CONTACT_RESTAURANTS: ContactRestaurant[] = [
+  {
+    id: "country-club",
+    name: "Country Club",
+    city: "Комарово",
+    address: "Ленинградская область • пос. Комарово • Приморское шоссе • 466",
+    note: "Для гостей доступна бесплатная парковка",
+    schedule: [
+      { days: "ПН–ЧТ", time: "12:00–23:00" },
+      { days: "ПТ", time: "12:00–01:00" },
+      { days: "СБ–ВС", time: "11:00–01:00" },
+    ],
+    phone: "+7 (812) 240-66-66",
+    phoneHref: "tel:88122406666",
+    telegram: "https://t.me/Meat_coin_bot",
+    mapSrc:
+      "https://yandex.ru/map-widget/v1/?um=constructor%3Ae6ea5694b4a72a3a6ae86566661606e092d9645a8e9e5d9d68ec41cc4d4f7baf&source=constructor",
+  },
   {
     id: "steak-terrace",
     name: "Steak & Terrace",
@@ -31,22 +49,6 @@ export const CONTACT_RESTAURANTS: ContactRestaurant[] = [
     telegram: "https://t.me/Meat_coin_bot",
     mapSrc:
       "https://yandex.ru/map-widget/v1/?um=constructor%3A8fa274675addcb7c5913109f940af88d15084baefad65478edc23090113f6f82&source=constructor",
-  },
-  {
-    id: "country-club",
-    name: "Country Club",
-    city: "Комарово",
-    address: "Ленинградская область • пос. Комарово • Приморское шоссе • 466",
-    schedule: [
-      { days: "ПН–ЧТ", time: "12:00–23:00" },
-      { days: "ПТ", time: "12:00–01:00" },
-      { days: "СБ–ВС", time: "11:00–01:00" },
-    ],
-    phone: "+7 (812) 240-66-66",
-    phoneHref: "tel:88122406666",
-    telegram: "https://t.me/Meat_coin_bot",
-    mapSrc:
-      "https://yandex.ru/map-widget/v1/?um=constructor%3Ae6ea5694b4a72a3a6ae86566661606e092d9645a8e9e5d9d68ec41cc4d4f7baf&source=constructor",
   },
   {
     id: "butcher-grill",
