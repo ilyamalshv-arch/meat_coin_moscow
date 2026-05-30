@@ -43,7 +43,7 @@ function RestaurantDetails({ restaurant }: { restaurant: ContactRestaurant }) {
         </div>
       </div>
 
-      <div className="flex gap-4">
+      <div className="flex gap-4 max-[359px]:flex-wrap">
         <Button text="Оставить заявку" />
         <div className="flex items-center gap-4">
           <a href={restaurant.phoneHref} className="text-accent">
