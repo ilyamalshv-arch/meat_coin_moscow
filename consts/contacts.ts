@@ -25,7 +25,7 @@ export const CONTACT_RESTAURANTS: ContactRestaurant[] = [
     name: "Country Club",
     city: "Комарово",
     address: "Ленинградская область • пос. Комарово • Приморское шоссе • 466",
-    note: "Для гостей доступна бесплатная парковка",
+    note: "Для гостей доступна бесплатная парковка",
     schedule: [
       { days: "ПН–ЧТ", time: "12:00–23:00" },
       { days: "ПТ", time: "12:00–01:00" },
@@ -42,7 +42,7 @@ export const CONTACT_RESTAURANTS: ContactRestaurant[] = [
     name: "Steak & Terrace",
     city: "Москва",
     address: "Смоленская площадь • 5",
-    note: "Бесплатный крытый паркинг для гостей",
+    note: "Бесплатный крытый паркинг для гостей",
     schedule: [{ days: "Ежедневно", time: "12:00–00:00" }],
     phone: "+7 (499) 116-60-93",
     phoneHref: "tel:84991166093",
